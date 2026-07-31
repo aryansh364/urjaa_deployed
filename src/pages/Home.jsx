@@ -1,11 +1,16 @@
-function Hero() {
+import Services from '../components/sections/Services/Services';
+
+function Home() {
   return (
-    <section className="min-h-screen bg-green-600 flex items-center justify-center">
-      <h1 className="text-6xl font-bold text-white">
-        HERO
-      </h1>
-    </section>
+    <>
+      <section className="min-h-screen bg-green-600 flex items-center justify-center">
+        <h1 className="text-6xl font-bold text-white">
+          HERO
+        </h1>
+      </section>
+      <Services />
+    </>
   );
 }
 
-export default Hero;
+export default Home;
