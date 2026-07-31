@@ -1,11 +1,13 @@
-function Hero() {
+import Hero from "../components/sections/Hero/Hero";
+import { ContactConsultation } from "../components/sections/ContactConsultation";
+
+function Home() {
   return (
-    <section className="min-h-screen bg-green-600 flex items-center justify-center">
-      <h1 className="text-6xl font-bold text-white">
-        HERO
-      </h1>
-    </section>
+    <>
+      <Hero />
+      <ContactConsultation />
+    </>
   );
 }
 
-export default Hero;
+export default Home;
