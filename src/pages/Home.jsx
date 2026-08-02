@@ -1,4 +1,7 @@
 import Services from '../components/sections/Services/Services';
+import WhyUs from '../components/sections/WhyUs/WhyUs';
+import Process from '../components/sections/Process/Process';
+import Projects from '../components/sections/Projects/Projects';
 
 function Home() {
   return (
@@ -9,6 +12,9 @@ function Home() {
         </h1>
       </section>
       <Services />
+      <WhyUs />
+      <Process />
+      <Projects />
     </>
   );
 }
