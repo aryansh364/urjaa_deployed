@@ -1,3 +1,4 @@
+import Hero from '../components/sections/Hero/Hero';
 import Services from '../components/sections/Services/Services';
 import WhyUs from '../components/sections/WhyUs/WhyUs';
 import Process from '../components/sections/Process/Process';
@@ -8,11 +9,7 @@ import OperationalReach from '../components/sections/OperationalReach';
 function Home() {
   return (
     <>
-      <section className="min-h-screen bg-green-600 flex items-center justify-center">
-        <h1 className="text-6xl font-bold text-white">
-          HERO
-        </h1>
-      </section>
+      <Hero />
       <Services />
       <WhyUs />
       <Process />
