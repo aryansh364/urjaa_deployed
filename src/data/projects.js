@@ -1,8 +1,7 @@
 /**
- * PLACEHOLDER DATA
- * These entries exist solely for layout testing and filter functionality verification.
- * Replace with actual project data when available.
- * The component logic (Projects.jsx) does not need to change when real data is substituted.
+ * PROJECT DATA
+ * Categories and project entries represent actual Urjaa Solutions service domains.
+ * Replace imageUrl values with actual project photography when available.
  */
 
 export const projectCategories = [
@@ -11,74 +10,74 @@ export const projectCategories = [
   "Residential",
   "Hybrid",
   "Industrial",
-  "Robo",
+  "BESS",
   "Micro Wind Systems",
-  "Solar"
+  "Solar Pumping Solutions"
 ];
 
 export const projectsData = [
   {
     id: 1,
-    title: "Commercial Rooftop Installation",
+    title: "Commercial Rooftop Solar",
     category: "Commercial",
     location: "Bengaluru, Karnataka",
-    description: "Placeholder — replace with actual project details when available.",
+    description: "On-grid commercial rooftop solar installation.",
     imageUrl: null
   },
   {
     id: 2,
-    title: "Residential Solar System",
+    title: "10kW Residential Rooftop",
     category: "Residential",
-    location: "Mysuru, Karnataka",
-    description: "Placeholder — replace with actual project details when available.",
+    location: "Bengaluru, Karnataka",
+    description: "Residential rooftop solar system.",
     imageUrl: null
   },
   {
     id: 3,
-    title: "Hybrid Energy Deployment",
+    title: "Solar + Wind Hybrid System",
     category: "Hybrid",
-    location: "Hubli, Karnataka",
-    description: "Placeholder — replace with actual project details when available.",
+    location: "Pavagada, Karnataka",
+    description: "Hybrid Solar + Wind + DG sync deployment.",
     imageUrl: null
   },
   {
     id: 4,
-    title: "Industrial Grid Infrastructure",
+    title: "MW-Scale Industrial Plant",
     category: "Industrial",
-    location: "Chennai, Tamil Nadu",
-    description: "Placeholder — replace with actual project details when available.",
+    location: "Keonjhar, Odisha",
+    description: "Large-scale ground-mounted industrial solar plant.",
     imageUrl: null
   },
   {
     id: 5,
-    title: "Robo-Assisted Installation",
-    category: "Robo",
+    title: "BESS Installation",
+    category: "BESS",
     location: "Bengaluru, Karnataka",
-    description: "Placeholder — replace with actual project details when available.",
+    description: "Battery Energy Storage System for grid stabilization.",
     imageUrl: null
   },
   {
     id: 6,
-    title: "Micro Wind Turbine Setup",
+    title: "Micro Wind Turbine System",
     category: "Micro Wind Systems",
-    location: "Mangaluru, Karnataka",
-    description: "Placeholder — replace with actual project details when available.",
+    location: "Baniatangi, Odisha",
+    description: "Small-scale wind turbine installation.",
     imageUrl: null
   },
   {
     id: 7,
-    title: "Solar Panel Array",
-    category: "Solar",
-    location: "Hyderabad, Telangana",
-    description: "Placeholder — replace with actual project details when available.",
+    title: "Solar Pumping Solution",
+    category: "Solar Pumping Solutions",
+    location: "Karnataka",
+    description: "Turnkey solar-powered water pumping system.",
     imageUrl: null
   },
   {
     id: 8,
-    title: "Commercial Hybrid System",
-    category: "Commercial",
-    location: "Pune, Maharashtra",
-    description: "Placeholder — replace with actual project details when available.",
+    title: "Hybrid Industrial Grid",
+    category: "Industrial",
+    location: "Bengaluru, Karnataka",
+    description: "Hybrid energy infrastructure for industrial facility.",
     imageUrl: null
   }
 ];

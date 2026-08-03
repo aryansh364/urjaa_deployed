@@ -7,7 +7,7 @@ import Card from '../../ui/Card';
 // Helper function to map iconIds from services.js to inline SVGs 
 // This avoids installing third-party icon libraries while maintaining visual distinction.
 function renderIcon(iconId) {
-  const baseClasses = "w-7 h-7 text-green-600";
+  const baseClasses = "w-7 h-7 text-emerald-600";
   
   switch (iconId) {
     case 'wind':
@@ -47,7 +47,7 @@ function renderIcon(iconId) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-slate-50">
+    <section id="services" className="py-24 md:py-32 bg-slate-50">
       <Container>
         <SectionTitle 
           subtitle="Our Services" 
@@ -62,11 +62,11 @@ export default function Services() {
                 {renderIcon(service.iconId)}
               </div>
               
-              <h3 className="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-3 tracking-tight">
                 {service.title}
               </h3>
               
-              <p className="text-slate-600 leading-relaxed text-sm">
+              <p className="text-slate-500 leading-relaxed text-sm font-medium">
                 {service.description}
               </p>
             </Card>

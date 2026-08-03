@@ -3,7 +3,7 @@ import Container from '../../ui/Container';
 import SectionTitle from '../../ui/SectionTitle';
 
 function renderIcon(iconId) {
-  const baseClasses = "w-7 h-7 text-green-600";
+  const baseClasses = "w-7 h-7 text-emerald-600";
 
   switch (iconId) {
     case 'map-pin':
@@ -43,7 +43,7 @@ function renderIcon(iconId) {
 
 export default function OperationalReach() {
   return (
-    <section id="operational-reach" className="py-20 md:py-28 bg-white">
+    <section id="operational-reach" className="py-24 md:py-32 bg-white">
       <Container>
         <SectionTitle
           subtitle="Operational Reach"
@@ -56,7 +56,7 @@ export default function OperationalReach() {
           {operationalStats.map((stat) => (
             <div
               key={stat.id}
-              className="group bg-slate-900 rounded-3xl p-6 sm:p-8 text-center text-white transition-all duration-300 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] hover:-translate-y-1 relative overflow-hidden border-t-4 border-emerald-500"
+              className="group bg-slate-900 rounded-3xl p-6 sm:p-8 text-center text-white transition-all duration-300 ease-in-out hover:shadow-[0_16px_40px_rgb(0,0,0,0.20)] hover:-translate-y-2 relative overflow-hidden border-t-4 border-emerald-500"
             >
               <div className="absolute inset-0 bg-emerald-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10 flex justify-center mb-5">
@@ -81,7 +81,7 @@ export default function OperationalReach() {
 
         {/* Service Regions */}
         <div className="mt-16 md:mt-20">
-          <h3 className="text-xl font-extrabold text-slate-900 text-center mb-8 tracking-tight">
+          <h3 className="text-xs font-bold text-emerald-600 tracking-widest uppercase text-center mb-8">
             Service Regions
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">

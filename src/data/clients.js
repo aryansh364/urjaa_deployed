@@ -1,57 +1,44 @@
 /**
- * PLACEHOLDER DATA
- * These entries exist for layout testing and visual verification.
- * Replace with actual client names, logos, and industries when available.
- * The component logic (ClientShowcase.jsx) does not need to change when real data is substituted.
+ * CLIENT DATA
+ * Actual clients as specified by Urjaa Solutions.
+ * Replace logo paths with actual logo files when available.
  */
 
 export const clientsData = [
   {
     id: 1,
-    name: "NTPC Limited",
+    name: "Toyota",
     logo: null,
-    industry: "Government Energy"
+    industry: "Automotive"
   },
   {
     id: 2,
-    name: "BHEL",
+    name: "Suprajit",
     logo: null,
-    industry: "Heavy Engineering"
+    industry: "Auto Components"
   },
   {
     id: 3,
-    name: "Tata Power",
+    name: "ArcelorMittal",
     logo: null,
-    industry: "Power & Infrastructure"
+    industry: "Steel & Mining"
   },
   {
     id: 4,
-    name: "Adani Green",
+    name: "Bosch",
     logo: null,
-    industry: "Renewable Energy"
+    industry: "Industrial Technology"
   },
   {
     id: 5,
-    name: "L&T Construction",
+    name: "HAL",
     logo: null,
-    industry: "Engineering & EPC"
+    industry: "Defence & Aerospace"
   },
   {
     id: 6,
-    name: "SECI",
+    name: "Indian Navy",
     logo: null,
-    industry: "Government Solar"
-  },
-  {
-    id: 7,
-    name: "KREDL",
-    logo: null,
-    industry: "State Energy Development"
-  },
-  {
-    id: 8,
-    name: "Suzlon Energy",
-    logo: null,
-    industry: "Wind Energy"
+    industry: "Government Defence"
   }
 ];

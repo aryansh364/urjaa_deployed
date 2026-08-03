@@ -3,6 +3,7 @@ import Container from '../ui/Container';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Handle sticky navbar scroll effect
   useEffect(() => {
@@ -14,11 +15,26 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Process', href: '#process' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Clients', href: '#clients' },
+    { 
+      name: 'Solar Power Plants', 
+      href: '#services',
+      dropdown: ['On-Grid Systems', 'Off-Grid Systems', 'Hybrid Systems', 'Rooftop Projects', 'Ground Mounted Projects']
+    },
+    { 
+      name: 'Wind & Hybrid', 
+      href: '#services',
+      dropdown: ['Wind Energy Systems', 'Hybrid (Solar + Wind)', 'On-Grid / Off-Grid with DG Sync']
+    },
+    { 
+      name: 'Power Conditioning', 
+      href: '#services',
+      dropdown: ['UPS Systems', 'Battery Solutions', 'Servo Controlled Voltage Stabilizers', 'BESS']
+    },
+    { 
+      name: 'Specialized', 
+      href: '#services',
+      dropdown: ['Solar & Hybrid Street Lights', 'Solar Pumping Solutions']
+    },
   ];
 
   return (
@@ -58,20 +74,65 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <a 
               href="#contact" 
-              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-emerald-600 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-lg shadow-emerald-600/30 hover:bg-emerald-700 hover:shadow-emerald-600/50 hover:-translate-y-0.5 transition-all duration-300"
+              className="hidden md:inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 ease-in-out"
             >
-              Get a Quote
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Request Consultation
             </a>
             
             {/* Mobile Menu Button */}
-            <button className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
+            >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
       </Container>
+
+      {/* Mobile Menu Drawer */}
+      <div 
+        className={`fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        <div 
+          className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl flex flex-col p-8 transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside drawer
+        >
+          <div className="flex flex-col gap-6 mt-16">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="py-2 text-lg font-bold text-slate-800 hover:text-emerald-600 uppercase tracking-wider transition-colors duration-200"
+              >
+                {link.name}
+              </a>
+            ))}
+            <a 
+              href="#contact" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center px-6 py-3 mt-4 bg-emerald-600 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.45)] active:translate-y-0 transition-all duration-300 ease-in-out"
+            >
+              Get a Quote
+            </a>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
