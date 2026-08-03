@@ -3,8 +3,8 @@ export default function Card({
   className = "", 
   hoverEffect = true 
 }) {
-  const baseClasses = "bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-300 ease-in-out";
-  const hoverClasses = hoverEffect ? "hover:-translate-y-1 hover:shadow-lg" : "";
+  const baseClasses = "bg-white rounded-3xl border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 ease-out";
+  const hoverClasses = hoverEffect ? "hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)]" : "";
 
   return (
     <div className={`${baseClasses} ${hoverClasses} ${className}`}>
