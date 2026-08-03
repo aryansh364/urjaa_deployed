@@ -41,9 +41,7 @@ function renderIcon(iconId) {
   }
 }
 
-export default function Process() {
-  return (
-    <section id="process" className="py-20 md:py-28 bg-gray-50">
+    <section id="process" className="py-20 md:py-28 bg-slate-50">
       <Container>
         <SectionTitle
           subtitle="How We Work"
@@ -51,20 +49,25 @@ export default function Process() {
           description="A streamlined, end-to-end EPC workflow engineered for transparency and reliability at every stage."
         />
 
-        <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 md:mt-16 list-none p-0 m-0">
+        <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 md:mt-20 list-none p-0 m-0">
           {processData.map((item) => (
-            <li key={item.id}>
-              <Card className="p-8 flex flex-col items-start h-full" hoverEffect={false}>
-                <span className="text-4xl font-extrabold text-green-600 mb-4">
-                  {item.step}
-                </span>
-                <div className="mb-4 p-3 bg-green-100 rounded-xl">
-                  {renderIcon(item.iconId)}
+            <li key={item.id} className="relative">
+              {/* Optional connector line for large screens */}
+              <div className="hidden lg:block absolute top-12 left-1/2 w-full h-[2px] bg-gradient-to-r from-emerald-100 to-transparent -z-10" />
+              
+              <Card className="p-8 flex flex-col items-start h-full group" hoverEffect={true}>
+                <div className="relative mb-6">
+                  <span className="absolute -top-8 -left-4 text-7xl font-black text-emerald-500/10 z-0 transition-transform duration-300 group-hover:-translate-y-2 group-hover:text-emerald-500/20">
+                    {item.step}
+                  </span>
+                  <div className="relative z-10 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-600 group-hover:text-white">
+                    {renderIcon(item.iconId)}
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-extrabold text-slate-900 mb-3 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </Card>

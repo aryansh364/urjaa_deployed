@@ -56,22 +56,23 @@ export default function OperationalReach() {
           {operationalStats.map((stat) => (
             <div
               key={stat.id}
-              className="bg-green-600 rounded-2xl p-6 sm:p-8 text-center text-white transition-all duration-300 hover:bg-green-700 hover:shadow-lg"
+              className="group bg-slate-900 rounded-3xl p-6 sm:p-8 text-center text-white transition-all duration-300 hover:shadow-[0_12px_40px_rgb(0,0,0,0.15)] hover:-translate-y-1 relative overflow-hidden border-t-4 border-emerald-500"
             >
-              <div className="flex justify-center mb-4">
-                <div className="p-3 bg-white/20 rounded-xl">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="absolute inset-0 bg-emerald-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10 flex justify-center mb-5">
+                <div className="p-3.5 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/5 group-hover:scale-110 transition-transform duration-300">
+                  <svg className="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     {iconPath(stat.iconId)}
                   </svg>
                 </div>
               </div>
-              <p className="text-3xl sm:text-4xl font-extrabold mb-2">
+              <p className="relative z-10 text-3xl sm:text-4xl font-black mb-2 tracking-tight">
                 {stat.value}
               </p>
-              <h3 className="text-sm sm:text-base font-semibold text-green-100 mb-1">
+              <h3 className="relative z-10 text-sm sm:text-base font-bold text-slate-300 mb-1">
                 {stat.title}
               </h3>
-              <p className="text-xs text-green-200 hidden sm:block">
+              <p className="relative z-10 text-xs text-slate-400 hidden sm:block font-medium">
                 {stat.description}
               </p>
             </div>
@@ -79,34 +80,34 @@ export default function OperationalReach() {
         </div>
 
         {/* Service Regions */}
-        <div className="mt-12 md:mt-16">
-          <h3 className="text-xl font-bold text-gray-900 text-center mb-8">
+        <div className="mt-16 md:mt-20">
+          <h3 className="text-xl font-extrabold text-slate-900 text-center mb-8 tracking-tight">
             Service Regions
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {serviceRegions.map((region) => (
               <div
                 key={region.id}
-                className={`rounded-xl p-4 sm:p-5 text-center transition-all duration-300 border ${
+                className={`rounded-2xl p-4 sm:p-5 text-center transition-all duration-300 border ${
                   region.isHQ
-                    ? "bg-green-50 border-green-200 shadow-sm"
-                    : "bg-gray-50 border-gray-100 hover:bg-green-50 hover:border-green-200"
+                    ? "bg-emerald-50/50 border-emerald-200 shadow-sm"
+                    : "bg-slate-50 border-slate-100 hover:bg-emerald-50 hover:border-emerald-200"
                 }`}
               >
                 <div className="flex justify-center mb-2">
-                  <svg className={`w-5 h-5 ${region.isHQ ? "text-green-600" : "text-gray-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className={`w-5 h-5 ${region.isHQ ? "text-emerald-600" : "text-slate-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <p className="text-sm font-bold text-gray-900">
+                <p className="text-sm font-bold text-slate-900">
                   {region.city}
                 </p>
-                <p className="text-xs text-gray-500 mt-0.5">
+                <p className="text-xs text-slate-500 mt-0.5 font-medium">
                   {region.state}
                 </p>
                 {region.isHQ && (
-                  <span className="inline-block mt-2 px-2 py-0.5 bg-green-600 text-white text-[10px] font-semibold rounded-full uppercase tracking-wider">
+                  <span className="inline-block mt-3 px-2.5 py-1 bg-emerald-600 text-white text-[10px] font-bold rounded-full uppercase tracking-widest shadow-sm shadow-emerald-600/20">
                     HQ
                   </span>
                 )}
