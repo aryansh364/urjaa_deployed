@@ -1,3 +1,4 @@
+import { SolarCalculator } from "../components/sections/SolarCalculator";
 import Hero from "../components/sections/Hero/Hero";
 import Services from "../components/sections/Services/Services";
 import WhyUs from "../components/sections/WhyUs/WhyUs";
@@ -14,6 +15,7 @@ function Home() {
       <Process />
       <Projects />
       <ContactConsultation />
+      <SolarCalculator />
     </>
   );
 }
