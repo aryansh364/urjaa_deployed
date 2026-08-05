@@ -1,9 +1,11 @@
-function Header() {
+import Navbar from "./Navbar";
+import Topbar from "./Topbar";
+
+export default function Header() {
   return (
-    <header>
-      <h1>HEADER</h1>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <Topbar />
+      <Navbar />
     </header>
   );
 }
-
-export default Header;
