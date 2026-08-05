@@ -1,45 +1,106 @@
 import Card from "../../ui/Card";
+import CountUp from "react-countup";
+
+const resultItems = [
+  {
+    label: "Recommended System",
+    key: "systemSize",
+    icon: "⚡",
+    unit: " kW",
+    numeric: true,
+  },
+  {
+    label: "Annual Savings",
+    key: "annualSavings",
+    icon: "💰",
+    prefix: "₹",
+    numeric: true,
+  },
+  {
+    label: "CO₂ Reduction",
+    key: "co2Reduction",
+    icon: "🌱",
+    unit: " Tons",
+    numeric: true,
+  },
+  {
+    label: "Payback Period",
+    key: "payback",
+    icon: "⏳",
+    unit: " Years",
+    numeric: true,
+  },
+];
 
 export default function ResultCard({ results }) {
+  const hasResults = results.systemSize !== "--";
+
   return (
     <Card className="p-8">
-      <h3 className="text-2xl font-bold text-gray-900 mb-8">
+      <h3 className="text-2xl font-bold text-gray-900 mb-2">
         Estimated Results
       </h3>
 
-      <div className="space-y-6">
-        <div className="flex justify-between items-center border-b pb-4">
-          <span className="text-gray-600">Recommended System</span>
+      <p className="text-gray-600 mb-8">
+        Your estimated solar investment analysis.
+      </p>
 
-          <span className="text-xl font-bold text-green-600">
-            {results.systemSize}
-          </span>
-        </div>
+      <div className="space-y-5">
+        {resultItems.map((item) => {
+          const value = parseFloat(results[item.key]);
 
-        <div className="flex justify-between items-center border-b pb-4">
-          <span className="text-gray-600">Annual Savings</span>
+          return (
+            <div
+              key={item.key}
+              className="flex items-center justify-between p-5 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-green-50 transition"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-2xl">
+                  {item.icon}
+                </div>
 
-          <span className="text-xl font-bold text-green-600">
-            {results.annualSavings}
-          </span>
-        </div>
+                <div>
+                  <p className="text-gray-500 text-sm">{item.label}</p>
 
-        <div className="flex justify-between items-center border-b pb-4">
-          <span className="text-gray-600">CO₂ Reduction</span>
+                  <h4 className="text-xl font-bold text-green-600">
+                    {hasResults ? (
+                      <>
+                        {item.prefix}
 
-          <span className="text-xl font-bold text-green-600">
-            {results.co2Reduction}
-          </span>
-        </div>
+                        <CountUp
+                          end={isNaN(value) ? 0 : value}
+                          duration={2}
+                          decimals={
+                            item.key === "systemSize" ||
+                            item.key === "co2Reduction"
+                              ? 1
+                              : 0
+                          }
+                        />
 
-        <div className="flex justify-between items-center">
-          <span className="text-gray-600">Payback Period</span>
-
-          <span className="text-xl font-bold text-green-600">
-            {results.payback}
-          </span>
-        </div>
+                        {item.unit}
+                      </>
+                    ) : (
+                      "--"
+                    )}
+                  </h4>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
+
+      {!hasResults && (
+        <div className="mt-8 text-center text-gray-500">
+          Fill the form and click
+          <span className="text-green-600 font-semibold">
+            {" "}
+            Calculate Savings
+          </span>
+          .
+        </div>
+      )}
     </Card>
   );
 }

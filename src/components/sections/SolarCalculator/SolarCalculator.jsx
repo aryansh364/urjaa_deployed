@@ -5,6 +5,14 @@ import CalculatorForm from "./CalculatorForm";
 import ResultCard from "./ResultCard";
 
 export default function SolarCalculator() {
+  // Form Data
+  const [formData, setFormData] = useState({
+    bill: "",
+    propertyType: "Residential",
+    units: "",
+  });
+
+  // Results
   const [results, setResults] = useState({
     systemSize: "--",
     annualSavings: "--",
@@ -22,7 +30,11 @@ export default function SolarCalculator() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-16">
-          <CalculatorForm setResults={setResults} />
+          <CalculatorForm
+            formData={formData}
+            setFormData={setFormData}
+            setResults={setResults}
+          />
 
           <ResultCard results={results} />
         </div>
