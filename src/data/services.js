@@ -2,25 +2,25 @@ export const servicesData = [
   {
     id: 1,
     title: "Wind & Micro Wind",
-    description: "Harnessing the power of wind through robust turbines and micro-wind solutions tailored for varying geographic conditions.",
+    description: "Small-to-large scale turbine integration.",
     iconId: "wind"
   },
   {
     id: 2,
     title: "Hybrid Energy Systems",
-    description: "Integrating multiple renewable energy sources into cohesive, intelligent systems for maximum reliability and efficiency.",
+    description: "Seamless Solar + Wind + DG Synchronization.",
     iconId: "layers"
   },
   {
     id: 3,
     title: "Power Conditioning",
-    description: "Ensuring optimal power quality and grid stability with advanced power conditioning units and inverters.",
+    description: "Industrial-grade UPS, high-capacity Batteries, and Voltage Stabilizers.",
     iconId: "activity"
   },
   {
     id: 4,
     title: "Specialized Deployment",
-    description: "Custom-engineered renewable deployments designed specifically for challenging terrains and unique client requirements.",
+    description: "Turnkey installation for solar pumps and street lighting grids.",
     iconId: "settings"
   }
 ];

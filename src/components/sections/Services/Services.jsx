@@ -7,7 +7,7 @@ import Card from '../../ui/Card';
 // Helper function to map iconIds from services.js to inline SVGs 
 // This avoids installing third-party icon libraries while maintaining visual distinction.
 function renderIcon(iconId) {
-  const baseClasses = "w-7 h-7 text-green-600";
+  const baseClasses = "w-7 h-7 text-emerald-600";
   
   switch (iconId) {
     case 'wind':
@@ -47,7 +47,7 @@ function renderIcon(iconId) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 md:py-28 bg-gray-50">
+    <section id="services" className="py-24 md:py-32 bg-slate-50">
       <Container>
         <SectionTitle 
           subtitle="Our Services" 
@@ -57,16 +57,16 @@ export default function Services() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 md:mt-16">
           {servicesData.map((service) => (
-            <Card key={service.id} className="p-8 flex flex-col items-start text-left">
-              <div className="mb-6 p-4 bg-green-100 rounded-2xl text-green-700">
+            <Card key={service.id} className="p-8 flex flex-col items-start text-left group">
+              <div className="mb-6 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-600 group-hover:text-white">
                 {renderIcon(service.iconId)}
               </div>
               
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-3 tracking-tight">
                 {service.title}
               </h3>
               
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-slate-500 leading-relaxed text-sm font-medium">
                 {service.description}
               </p>
             </Card>

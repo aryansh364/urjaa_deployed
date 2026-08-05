@@ -4,7 +4,7 @@ import SectionTitle from '../../ui/SectionTitle';
 import Card from '../../ui/Card';
 
 function renderIcon(iconId) {
-  const baseClasses = "w-6 h-6 text-green-600";
+  const baseClasses = "w-6 h-6 text-emerald-600";
 
   switch (iconId) {
     case 'shield':
@@ -43,8 +43,9 @@ function renderIcon(iconId) {
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-20 md:py-28 bg-white">
-      <Container>
+    <section id="why-us" className="py-24 md:py-32 bg-white overflow-hidden relative">
+      <div className="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-emerald-50/50 blur-3xl" />
+      <Container className="relative z-10">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20">
 
           <div className="lg:w-2/5 flex-shrink-0">
@@ -57,16 +58,16 @@ export default function WhyUs() {
           </div>
 
           <div className="lg:w-3/5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {whyUsData.map((item) => (
-                <Card key={item.id} className="p-6 flex flex-col items-start" hoverEffect={false}>
-                  <div className="mb-4 p-3 bg-green-100 rounded-xl">
+                <Card key={item.id} className="p-8 flex flex-col items-start group" hoverEffect={true}>
+                  <div className="mb-5 p-3.5 bg-emerald-50 rounded-2xl text-emerald-600 transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:bg-emerald-100">
                     {renderIcon(item.iconId)}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-2.5">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-slate-500 text-sm leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </Card>
