@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { sendContactForm } from "../../../services/contactService";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,9 @@ export default function ContactForm() {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [serverError, setServerError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,15 +58,35 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (validateForm()) {
-      alert("Form Submitted Successfully!");
+    if (!validateForm()) return;
 
-      console.log(formData);
+    setLoading(true);
+    setSuccess("");
+    setServerError("");
 
-      // API Integration will be added later
+    try {
+      await sendContactForm(formData);
+
+      setSuccess("Your consultation request has been submitted successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        projectType: "",
+        message: "",
+      });
+
+      setErrors({});
+    } catch (error) {
+      console.error(error);
+
+      setServerError("Unable to submit your request. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -179,13 +203,34 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Button */}
+      {/* Success Message */}
+
+      {success && (
+        <div className="rounded-xl border border-green-300 bg-green-100 p-4 text-green-700 font-medium">
+          {success}
+        </div>
+      )}
+
+      {/* Error Message */}
+
+      {serverError && (
+        <div className="rounded-xl border border-red-300 bg-red-100 p-4 text-red-700 font-medium">
+          {serverError}
+        </div>
+      )}
+
+      {/* Submit Button */}
 
       <button
         type="submit"
-        className="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold transition duration-300"
+        disabled={loading}
+        className={`w-full py-4 rounded-xl font-semibold text-white transition-all duration-300 ${
+          loading
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-green-600 hover:bg-green-700"
+        }`}
       >
-        Request Consultation
+        {loading ? "Submitting..." : "Request Consultation"}
       </button>
     </form>
   );
