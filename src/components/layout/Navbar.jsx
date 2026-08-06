@@ -4,38 +4,45 @@ import Container from '../ui/Container';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'How We Work', href: '#process' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Clients', href: '#clients' },
+    { name: 'Operational Reach', href: '#operational-reach' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   // Handle sticky navbar scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Active section tracking
+      const sectionIds = navLinks.map(link => link.href.substring(1));
+      let current = 'home';
+      
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Adjust threshold based on header height (~100px)
+          if (rect.top <= 120) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
     };
+
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on load
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const navLinks = [
-    { 
-      name: 'Solar Power Plants', 
-      href: '#services',
-      dropdown: ['On-Grid Systems', 'Off-Grid Systems', 'Hybrid Systems', 'Rooftop Projects', 'Ground Mounted Projects']
-    },
-    { 
-      name: 'Wind & Hybrid', 
-      href: '#services',
-      dropdown: ['Wind Energy Systems', 'Hybrid (Solar + Wind)', 'On-Grid / Off-Grid with DG Sync']
-    },
-    { 
-      name: 'Power Conditioning', 
-      href: '#services',
-      dropdown: ['UPS Systems', 'Battery Solutions', 'Servo Controlled Voltage Stabilizers', 'BESS']
-    },
-    { 
-      name: 'Specialized', 
-      href: '#services',
-      dropdown: ['Solar & Hybrid Street Lights', 'Solar Pumping Solutions']
-    },
-  ];
 
   return (
     <header 
@@ -59,15 +66,20 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-bold text-slate-600 hover:text-emerald-600 uppercase tracking-wider transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
+                    isActive ? 'text-emerald-600' : 'text-slate-600 hover:text-emerald-600'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
           {/* CTA & Mobile Menu Toggle */}
@@ -113,16 +125,21 @@ export default function Navbar() {
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside drawer
         >
           <div className="flex flex-col gap-6 mt-16">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="py-2 text-lg font-bold text-slate-800 hover:text-emerald-600 uppercase tracking-wider transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`py-2 text-lg font-bold uppercase tracking-wider transition-colors duration-200 ${
+                    isActive ? 'text-emerald-600' : 'text-slate-800 hover:text-emerald-600'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
             <a 
               href="#contact" 
               onClick={() => setIsMobileMenuOpen(false)}

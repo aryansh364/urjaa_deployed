@@ -3,7 +3,7 @@ import Container from '../../ui/Container';
 export default function Hero() {
   return (
     <section 
-      id="hero" 
+      id="home" 
       className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden bg-slate-900"
     >
       {/* Background Image Placeholder */}
