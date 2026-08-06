@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import Container from '../ui/Container';
 
@@ -5,6 +6,14 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+=======
+
+import { useState, useEffect } from 'react';
+import Container from '../ui/Container';
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+>>>>>>> origin/ujjwal_dev
   // Handle sticky navbar scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +22,7 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+<<<<<<< HEAD
 
   const navLinks = [
     { 
@@ -32,16 +42,44 @@ export default function Navbar() {
     },
     { 
       name: 'Specialized', 
+=======
+  const navLinks = [
+    {
+      name: 'Solar Power Plants',
+      href: '#services',
+      dropdown: ['On-Grid Systems', 'Off-Grid Systems', 'Hybrid Systems', 'Rooftop Projects', 'Ground Mounted Projects']
+    },
+    {
+      name: 'Wind & Hybrid',
+      href: '#services',
+      dropdown: ['Wind Energy Systems', 'Hybrid (Solar + Wind)', 'On-Grid / Off-Grid with DG Sync']
+    },
+    {
+      name: 'Power Conditioning',
+      href: '#services',
+      dropdown: ['UPS Systems', 'Battery Solutions', 'Servo Controlled Voltage Stabilizers', 'BESS']
+    },
+    {
+      name: 'Specialized',
+>>>>>>> origin/ujjwal_dev
       href: '#services',
       dropdown: ['Solar & Hybrid Street Lights', 'Solar Pumping Solutions']
     },
   ];
+<<<<<<< HEAD
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled 
           ? 'bg-white shadow-md py-3' 
+=======
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? 'bg-white shadow-md py-3'
+>>>>>>> origin/ujjwal_dev
           : 'bg-white/95 backdrop-blur-sm py-4 md:py-6 border-b border-slate-100'
       }`}
     >
@@ -56,6 +94,7 @@ export default function Navbar() {
               Urjaa<span className="text-emerald-600">.</span>
             </span>
           </div>
+<<<<<<< HEAD
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
@@ -74,6 +113,79 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <a 
               href="#contact" 
+=======
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative group">
+
+                <a
+                  href={link.href}
+                  className="flex items-center gap-1 text-sm font-bold text-slate-600 hover:text-emerald-600 uppercase tracking-wider transition-colors duration-200"
+                >
+                  {link.name}
+
+                  {link.dropdown && (
+                    <svg
+                      className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  )}
+                </a>
+
+                {link.dropdown && (
+                  <div
+                    className="
+                      absolute
+                      left-0
+                      top-full
+                      mt-3
+                      w-72
+                      bg-white
+                      rounded-xl
+                      shadow-2xl
+                      border
+                      border-slate-100
+                      opacity-0
+                      invisible
+                      translate-y-2
+                      group-hover:opacity-100
+                      group-hover:visible
+                      group-hover:translate-y-0
+                      transition-all
+                      duration-300
+                      z-50
+                    "
+                  >
+                    {link.dropdown.map((item) => (
+                      <a
+                        key={item}
+                        href="#"
+                        className="block px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
+                      >
+                        {item}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+              </div>
+            ))}
+          </nav>
+          {/* CTA & Mobile Menu Toggle */}
+          <div className="flex items-center gap-4">
+            <a
+              href="#contact"
+>>>>>>> origin/ujjwal_dev
               className="hidden md:inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 ease-in-out"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,9 +193,15 @@ export default function Navbar() {
               </svg>
               Request Consultation
             </a>
+<<<<<<< HEAD
             
             {/* Mobile Menu Button */}
             <button 
+=======
+
+            {/* Mobile Menu Button */}
+            <button
+>>>>>>> origin/ujjwal_dev
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
             >
@@ -98,15 +216,24 @@ export default function Navbar() {
           </div>
         </div>
       </Container>
+<<<<<<< HEAD
 
       {/* Mobile Menu Drawer */}
       <div 
+=======
+      {/* Mobile Menu Drawer */}
+      <div
+>>>>>>> origin/ujjwal_dev
         className={`fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
           isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
+<<<<<<< HEAD
         <div 
+=======
+        <div
+>>>>>>> origin/ujjwal_dev
           className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl flex flex-col p-8 transition-transform duration-300 ease-in-out ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
@@ -123,8 +250,13 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+<<<<<<< HEAD
             <a 
               href="#contact" 
+=======
+            <a
+              href="#contact"
+>>>>>>> origin/ujjwal_dev
               onClick={() => setIsMobileMenuOpen(false)}
               className="inline-flex items-center justify-center px-6 py-3 mt-4 bg-emerald-600 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.45)] active:translate-y-0 transition-all duration-300 ease-in-out"
             >
@@ -135,4 +267,8 @@ export default function Navbar() {
       </div>
     </header>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/ujjwal_dev

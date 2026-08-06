@@ -24,4 +24,8 @@ export default function SectionTitle({
       )}
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/ujjwal_dev

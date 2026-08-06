@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 export default function Card({ 
   children, 
   className = "", 
   hoverEffect = true 
+=======
+export default function Card({
+  children,
+  className = "",
+  hoverEffect = true
+>>>>>>> origin/ujjwal_dev
 }) {
   const baseClasses = "bg-white rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.05)] transition-all duration-300 ease-in-out";
   const hoverClasses = hoverEffect ? "hover:-translate-y-2 hover:shadow-[0_16px_40px_rgb(0,0,0,0.10)] hover:border-slate-200" : "";
@@ -11,4 +18,8 @@ export default function Card({
       {children}
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/ujjwal_dev
