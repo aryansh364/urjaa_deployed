@@ -90,29 +90,33 @@ export default function CalculatorForm({ formData, setFormData, setResults }) {
   };
 
   const handleCalculate = () => {
-    if (!validate()) return;
+    try {
+      if (!validate()) return;
 
-    const bill = Number(formData.bill);
-    const units = Number(formData.units);
-    const stateFactor = highIrradianceStates.has(formData.state) ? 0.95 : 1;
-    const propertyFactor =
-      formData.propertyType === "Industrial"
-        ? 1.08
-        : formData.propertyType === "Commercial"
-          ? 1.04
-          : 1;
+      const bill = Number(formData.bill);
+      const units = Number(formData.units);
+      const stateFactor = highIrradianceStates.has(formData.state) ? 0.95 : 1;
+      const propertyFactor =
+        formData.propertyType === "Industrial"
+          ? 1.08
+          : formData.propertyType === "Commercial"
+            ? 1.04
+            : 1;
 
-    const systemSize = ((units / 90) * stateFactor * propertyFactor).toFixed(1);
-    const annualSavings = (bill * 12 * 0.82).toFixed(0);
-    const co2Reduction = (Number(systemSize) * 1.2).toFixed(1);
-    const payback = bill > 9000 ? "3 Years" : bill > 5000 ? "4 Years" : "5 Years";
+      const systemSize = ((units / 90) * stateFactor * propertyFactor).toFixed(1);
+      const annualSavings = (bill * 12 * 0.82).toFixed(0);
+      const co2Reduction = (Number(systemSize) * 1.2).toFixed(1);
+      const payback = bill > 9000 ? "3 Years" : bill > 5000 ? "4 Years" : "5 Years";
 
-    setResults({
-      systemSize: `${systemSize} kW`,
-      annualSavings: `₹${annualSavings}`,
-      co2Reduction: `${co2Reduction} Tons`,
-      payback,
-    });
+      setResults({
+        systemSize: `${systemSize} kW`,
+        annualSavings: `₹${annualSavings}`,
+        co2Reduction: `${co2Reduction} Tons`,
+        payback,
+      });
+    } catch (err) {
+      console.error("Calculation error:", err);
+    }
   };
 
   return (
@@ -125,13 +129,7 @@ export default function CalculatorForm({ formData, setFormData, setResults }) {
         Estimate your ideal solar system based on your electricity usage.
       </p>
 
-      <form
-        className="space-y-6"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleCalculate();
-        }}
-      >
+      <form className="space-y-6">
         <div>
           <label htmlFor="solar-state" className="block text-sm font-semibold text-slate-700 mb-2">
             Select State
@@ -282,7 +280,8 @@ export default function CalculatorForm({ formData, setFormData, setResults }) {
         </div>
 
         <button
-          type="submit"
+          type="button"
+          onClick={handleCalculate}
           className="w-full rounded-2xl bg-emerald-600 py-4 font-bold text-white shadow-[0_14px_30px_rgb(5,150,105,0.28)] transition hover:-translate-y-0.5 hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
         >
           Calculate Savings

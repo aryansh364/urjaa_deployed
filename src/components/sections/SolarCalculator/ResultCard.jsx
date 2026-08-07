@@ -74,7 +74,8 @@ export default function ResultCard({ results }) {
                         {item.prefix}
 
                         <CountUp
-                          end={isNaN(numericValue) ? 0 : numericValue}
+                          key={numericValue}
+                          end={isNaN(numericValue) || numericValue === null ? 0 : numericValue}
                           duration={2}
                           decimals={
                             item.key === "systemSize" ||

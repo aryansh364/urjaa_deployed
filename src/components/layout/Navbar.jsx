@@ -40,8 +40,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+    <nav
+      className={`transition-all duration-300 ease-in-out ${
         isScrolled
           ? 'bg-white shadow-md py-3'
           : 'bg-white/95 backdrop-blur-sm py-4 md:py-6 border-b border-slate-100'
@@ -159,6 +159,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }
