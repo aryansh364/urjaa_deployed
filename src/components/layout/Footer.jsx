@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import { siteConfig } from "../../constants/siteConfig";
 
 function Footer() {
   return (
@@ -107,12 +108,12 @@ function Footer() {
 
             <p className="flex items-center gap-3">
               <FaPhoneAlt />
-              +91 XXXXXXXXXX
+              {siteConfig.phone}
             </p>
 
             <p className="flex items-center gap-3">
               <FaEnvelope />
-              info@urjasolutions.com
+              {siteConfig.email}
             </p>
 
             <p className="flex items-start gap-3">

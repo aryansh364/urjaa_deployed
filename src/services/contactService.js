@@ -1,7 +1,8 @@
 import api from "./api";
 
 const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || "/contact";
-const CLIENT_EMAIL = import.meta.env.VITE_CLIENT_EMAIL || "info@urjasolutions.com";
+const CLIENT_EMAIL =
+  import.meta.env.VITE_CLIENT_EMAIL || "aloksingh18487@gmail.com";
 
 export const sendContactForm = async (data) => {
   const payload = {
