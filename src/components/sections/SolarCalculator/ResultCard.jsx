@@ -1,5 +1,27 @@
+import React, { useState, useEffect } from "react";
 import Card from "../../ui/Card";
-import CountUp from "react-countup";
+
+function AnimatedNumber({ end, decimals }) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    const duration = 2000;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutQuart
+      const ease = 1 - Math.pow(1 - progress, 4);
+      setValue(end * ease);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [end]);
+
+  return <>{value.toFixed(decimals)}</>;
+}
 
 const resultItems = [
   {
@@ -72,11 +94,8 @@ export default function ResultCard({ results }) {
                     ) : item.animated ? (
                       <>
                         {item.prefix}
-
-                        <CountUp
-                          key={numericValue}
+                        <AnimatedNumber
                           end={isNaN(numericValue) || numericValue === null ? 0 : numericValue}
-                          duration={2}
                           decimals={
                             item.key === "systemSize" ||
                             item.key === "co2Reduction"
@@ -84,7 +103,6 @@ export default function ResultCard({ results }) {
                               : 0
                           }
                         />
-
                         {item.unit}
                       </>
                     ) : (

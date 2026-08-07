@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden bg-slate-900"
+      className="relative min-h-[92vh] flex items-center pt-32 pb-16 overflow-hidden bg-slate-900"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
