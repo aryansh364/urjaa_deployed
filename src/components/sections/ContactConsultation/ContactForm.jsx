@@ -18,10 +18,24 @@ export default function ContactForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const nextData = {
+        ...prev,
+        [name]: value,
+      };
+
+      window.dispatchEvent(
+        new CustomEvent("urjaa:contact-form-change", { detail: nextData }),
+      );
+
+      try {
+        localStorage.setItem("urjaaContactDraft", JSON.stringify(nextData));
+      } catch {
+        // Draft persistence is best-effort only.
+      }
+
+      return nextData;
+    });
   };
 
   const validateForm = () => {
@@ -80,10 +94,20 @@ export default function ContactForm() {
         message: "",
       });
 
-      setErrors({});
-    } catch (error) {
-      console.error(error);
+      window.dispatchEvent(
+        new CustomEvent("urjaa:contact-form-change", {
+          detail: { name: "", phone: "", projectType: "", message: "" },
+        }),
+      );
 
+      try {
+        localStorage.removeItem("urjaaContactDraft");
+      } catch {
+        // Draft persistence is best-effort only.
+      }
+
+      setErrors({});
+    } catch {
       setServerError("Unable to submit your request. Please try again later.");
     } finally {
       setLoading(false);
@@ -95,77 +119,89 @@ export default function ContactForm() {
       {/* Full Name */}
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
           Full Name
         </label>
 
         <input
+          id="contact-name"
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
           placeholder="Enter your full name"
+          aria-invalid={Boolean(errors.name)}
+          aria-describedby={errors.name ? "contact-name-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
 
         {errors.name && (
-          <p className="text-red-500 text-sm mt-2">{errors.name}</p>
+          <p id="contact-name-error" className="text-red-500 text-sm mt-2">{errors.name}</p>
         )}
       </div>
 
       {/* Email */}
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
           Email Address
         </label>
 
         <input
+          id="contact-email"
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="Enter your email"
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? "contact-email-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
 
         {errors.email && (
-          <p className="text-red-500 text-sm mt-2">{errors.email}</p>
+          <p id="contact-email-error" className="text-red-500 text-sm mt-2">{errors.email}</p>
         )}
       </div>
 
       {/* Phone */}
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
           Phone Number
         </label>
 
         <input
+          id="contact-phone"
           type="tel"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
           placeholder="Enter your phone number"
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? "contact-phone-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
 
         {errors.phone && (
-          <p className="text-red-500 text-sm mt-2">{errors.phone}</p>
+          <p id="contact-phone-error" className="text-red-500 text-sm mt-2">{errors.phone}</p>
         )}
       </div>
 
       {/* Project Type */}
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="contact-project-type" className="block text-sm font-semibold text-gray-700 mb-2">
           Project Type
         </label>
 
         <select
+          id="contact-project-type"
           name="projectType"
           value={formData.projectType}
           onChange={handleChange}
+          aria-invalid={Boolean(errors.projectType)}
+          aria-describedby={errors.projectType ? "contact-project-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         >
           <option value="">Select Project Type</option>
@@ -178,35 +214,38 @@ export default function ContactForm() {
         </select>
 
         {errors.projectType && (
-          <p className="text-red-500 text-sm mt-2">{errors.projectType}</p>
+          <p id="contact-project-error" className="text-red-500 text-sm mt-2">{errors.projectType}</p>
         )}
       </div>
 
       {/* Message */}
 
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
           Message
         </label>
 
         <textarea
+          id="contact-message"
           rows="5"
           name="message"
           value={formData.message}
           onChange={handleChange}
           placeholder="Briefly describe your project requirements..."
+          aria-invalid={Boolean(errors.message)}
+          aria-describedby={errors.message ? "contact-message-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition resize-none"
         />
 
         {errors.message && (
-          <p className="text-red-500 text-sm mt-2">{errors.message}</p>
+          <p id="contact-message-error" className="text-red-500 text-sm mt-2">{errors.message}</p>
         )}
       </div>
 
       {/* Success Message */}
 
       {success && (
-        <div className="rounded-xl border border-green-300 bg-green-100 p-4 text-green-700 font-medium">
+        <div role="status" className="rounded-xl border border-green-300 bg-green-100 p-4 text-green-700 font-medium">
           {success}
         </div>
       )}
@@ -214,7 +253,7 @@ export default function ContactForm() {
       {/* Error Message */}
 
       {serverError && (
-        <div className="rounded-xl border border-red-300 bg-red-100 p-4 text-red-700 font-medium">
+        <div role="alert" className="rounded-xl border border-red-300 bg-red-100 p-4 text-red-700 font-medium">
           {serverError}
         </div>
       )}
@@ -224,6 +263,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={loading}
+        aria-busy={loading}
         className={`w-full py-4 rounded-xl font-semibold text-white transition-all duration-300 ${
           loading
             ? "bg-gray-400 cursor-not-allowed"

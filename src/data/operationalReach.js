@@ -37,12 +37,60 @@ export const operationalStats = [
 ];
 
 export const serviceRegions = [
-  { id: 1, state: "Karnataka", city: "Bengaluru", isHQ: true },
-  { id: 2, state: "Tamil Nadu", city: "Chennai", isHQ: false },
-  { id: 3, state: "Telangana", city: "Hyderabad", isHQ: false },
-  { id: 4, state: "Maharashtra", city: "Pune", isHQ: false },
-  { id: 5, state: "Andhra Pradesh", city: "Vijayawada", isHQ: false },
-  { id: 6, state: "Kerala", city: "Kochi", isHQ: false },
-  { id: 7, state: "Rajasthan", city: "Jaipur", isHQ: false },
-  { id: 8, state: "Gujarat", city: "Ahmedabad", isHQ: false }
+  {
+    id: 1,
+    state: "Karnataka",
+    city: "Bengaluru",
+    isHQ: true,
+    mapPosition: { top: "72%", left: "36%" },
+  },
+  {
+    id: 2,
+    state: "Tamil Nadu",
+    city: "Chennai",
+    isHQ: false,
+    mapPosition: { top: "80%", left: "44%" },
+  },
+  {
+    id: 3,
+    state: "Telangana",
+    city: "Hyderabad",
+    isHQ: false,
+    mapPosition: { top: "64%", left: "42%" },
+  },
+  {
+    id: 4,
+    state: "Maharashtra",
+    city: "Pune",
+    isHQ: false,
+    mapPosition: { top: "58%", left: "29%" },
+  },
+  {
+    id: 5,
+    state: "Andhra Pradesh",
+    city: "Vijayawada",
+    isHQ: false,
+    mapPosition: { top: "70%", left: "45%" },
+  },
+  {
+    id: 6,
+    state: "Kerala",
+    city: "Kochi",
+    isHQ: false,
+    mapPosition: { top: "83%", left: "33%" },
+  },
+  {
+    id: 7,
+    state: "Rajasthan",
+    city: "Jaipur",
+    isHQ: false,
+    mapPosition: { top: "32%", left: "25%" },
+  },
+  {
+    id: 8,
+    state: "Gujarat",
+    city: "Ahmedabad",
+    isHQ: false,
+    mapPosition: { top: "42%", left: "20%" },
+  }
 ];

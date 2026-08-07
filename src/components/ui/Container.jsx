@@ -4,8 +4,4 @@ export default function Container({ children, className = "" }) {
       {children}
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/ujjwal_dev

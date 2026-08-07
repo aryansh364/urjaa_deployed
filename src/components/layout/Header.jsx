@@ -1,12 +1,4 @@
 import Navbar from "./Navbar";
-<<<<<<< HEAD
-
-function Header() {
-  return (
-    <>
-      <Navbar />
-    </>
-=======
 import Topbar from "./Topbar";
 
 export default function Header() {
@@ -15,6 +7,5 @@ export default function Header() {
       <Topbar />
       <Navbar />
     </header>
->>>>>>> origin/ujjwal_dev
   );
 }

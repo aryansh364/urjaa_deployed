@@ -1,4 +1,4 @@
-import IndiaMap from "./IndiaMap";
+import IndiaMap from "./indiamap";
 import {
   operationalStats,
   serviceRegions,
@@ -48,17 +48,18 @@ export default function OperationalReach() {
 
         {/* Regions + Map */}
 
-        <div className="mt-24 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="mt-20 md:mt-24 grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-16 items-center">
           {/* LEFT */}
 
-          <div>
+          <div className="order-2 lg:order-1">
             <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-600 mb-8">
               Service Regions
             </h3>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {serviceRegions.map((region) => (
-                <div
+                <button
+                  type="button"
                   key={region.id}
                   onClick={() =>
                     window.open(
@@ -66,31 +67,39 @@ export default function OperationalReach() {
                         `${region.city} ${region.state}`,
                       )}`,
                       "_blank",
+                      "noopener,noreferrer",
                     )
                   }
-                  className={`cursor-pointer rounded-2xl border p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  className={`group text-left cursor-pointer rounded-2xl border p-5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 hover:shadow-xl hover:-translate-y-1 ${
                     region.isHQ
-                      ? "bg-emerald-50 border-emerald-300"
+                      ? "bg-emerald-50 border-emerald-300 shadow-[0_14px_35px_rgb(16,185,129,0.12)]"
                       : "bg-white border-slate-200 hover:border-emerald-300"
                   }`}
+                  aria-label={`Open ${region.city}, ${region.state} in Google Maps`}
                 >
-                  <h4 className="font-bold text-slate-900">{region.city}</h4>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h4 className="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                        {region.city}
+                      </h4>
 
-                  <p className="text-sm text-slate-500">{region.state}</p>
+                      <p className="text-sm text-slate-500">{region.state}</p>
+                    </div>
 
-                  {region.isHQ && (
-                    <span className="inline-block mt-3 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full">
-                      HQ
-                    </span>
-                  )}
-                </div>
+                    {region.isHQ && (
+                      <span className="shrink-0 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1 rounded-full">
+                        Head Office
+                      </span>
+                    )}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
 
           {/* RIGHT */}
 
-          <div>
+          <div className="order-1 lg:order-2">
             <h3 className="text-xs font-bold uppercase tracking-widest text-emerald-600 text-center mb-8">
               Interactive India Map
             </h3>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import Container from "../../ui/Container";
 
 export default function Hero() {
@@ -10,6 +9,7 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10" />
+
         <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1509391366360-51590abbd4c1?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40" />
       </div>
 
@@ -50,39 +50,6 @@ export default function Hero() {
           </div>
         </div>
       </Container>
-=======
-import Button from "../../ui/Button";
-
-function Hero() {
-  return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-
-        <h1 className="text-5xl font-bold mb-6">
-          Renewable Energy Engineering
-          <br />
-          For Every Scale
-        </h1>
-
-        <p className="text-gray-600 mb-8">
-          From residential rooftops to megawatt-scale
-          industrial projects.
-        </p>
-
-        <div className="flex gap-4 justify-center">
-
-          <Button>
-            Request Consultation
-          </Button>
-
-          <Button variant="outline">
-            Our Expertise
-          </Button>
-
-        </div>
-
-      </div>
->>>>>>> origin/ujjwal_dev
     </section>
   );
 }

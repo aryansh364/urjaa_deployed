@@ -5,6 +5,8 @@ export const siteConfig = {
 
   phone: "+91 XXXXXXXXXX",
 
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || "919999999999",
+
   email: "info@urjasolutions.com",
 
   address: "Bengaluru, Karnataka",
