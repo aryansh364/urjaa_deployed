@@ -21,7 +21,7 @@ function Footer() {
             </h2>
 
             <p className="text-green-100 mt-2">
-              No Project Too Small, No Grid Too Large.
+              No Project Too Small, No Field Too Large.
             </p>
           </div>
 
@@ -33,122 +33,101 @@ function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
-        {/* Company */}
+        {/* Column 1: Solar & Wind */}
         <div>
-          <h3 className="text-2xl font-bold mb-4">
-            Urjaa Solutions
-          </h3>
-
-          <p className="text-green-100 leading-7">
-            Delivering turnkey renewable energy engineering
-            solutions across residential, commercial,
-            industrial and government sectors.
-          </p>
-        </div>
-
-        {/* Services */}
-        <div>
-
-          <h4 className="font-semibold text-lg mb-4">
-            Services
+          <h4 className="font-semibold text-lg mb-4 text-yellow-300">
+            Solar & Wind
           </h4>
-
-          <ul className="space-y-3 text-green-100">
-
-            <li>Solar Power Plants</li>
-
-            <li>Wind & Hybrid</li>
-
-            <li>Power Conditioning</li>
-
-            <li>Solar Pumping</li>
-
-            <li>Street Lighting</li>
-
+          <ul className="space-y-3 text-green-100 text-sm">
+            <li>On-Grid Systems</li>
+            <li>Off-Grid Systems</li>
+            <li>Hybrid Systems</li>
+            <li>Rooftop Projects</li>
+            <li>Ground Mounted Projects</li>
+            <li>Wind Energy Systems</li>
           </ul>
-
         </div>
 
-        {/* Company */}
-
+        {/* Column 2: Power & Storage */}
         <div>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-300">
+            Power & Storage
+          </h4>
+          <ul className="space-y-3 text-green-100 text-sm">
+            <li>UPS Systems</li>
+            <li>Battery Solutions</li>
+            <li>Servo Controlled Stabilizers</li>
+            <li>BESS (Battery Energy Storage)</li>
+          </ul>
+        </div>
 
-          <h4 className="font-semibold text-lg mb-4">
+        {/* Column 3: Specialized */}
+        <div>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-300">
+            Specialized
+          </h4>
+          <ul className="space-y-3 text-green-100 text-sm">
+            <li>Solar & Hybrid Street Lights</li>
+            <li>Solar Pumping Solutions</li>
+          </ul>
+        </div>
+
+        {/* Column 4: Company */}
+        <div>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-300">
             Company
           </h4>
-
-          <ul className="space-y-3 text-green-100">
-
+          <ul className="space-y-3 text-green-100 text-sm">
             <li>About Us</li>
-
             <li>Projects</li>
-
             <li>Technical Consulting</li>
-
             <li>Operation & Maintenance</li>
-
-            <li>Contact</li>
-
           </ul>
-
         </div>
 
-        {/* Contact */}
-
+        {/* Column 5: Contact */}
         <div>
-
-          <h4 className="font-semibold text-lg mb-4">
+          <h4 className="font-semibold text-lg mb-4 text-yellow-300">
             Contact
           </h4>
-
-          <div className="space-y-4 text-green-100">
-
+          <div className="space-y-4 text-green-100 text-sm">
             <p className="flex items-center gap-3">
               <FaPhoneAlt />
               +91 XXXXXXXXXX
             </p>
-
             <p className="flex items-center gap-3">
               <FaEnvelope />
-              info@urjasolutions.com
+              sales@urjasolutions.com
             </p>
-
             <p className="flex items-start gap-3">
               <FaMapMarkerAlt className="mt-1" />
-              Bengaluru, Karnataka
+              Bengaluru, Karnataka (HQ)
             </p>
-
           </div>
 
           {/* Social */}
-
           <div className="flex gap-4 mt-6">
-
             <a
               href="#"
               className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
             >
               <FaFacebookF />
             </a>
-
             <a
               href="#"
               className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
             >
               <FaInstagram />
             </a>
-
             <a
               href="#"
               className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
             >
               <FaLinkedinIn />
             </a>
-
           </div>
-
         </div>
 
       </div>

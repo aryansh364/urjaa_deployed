@@ -1,7 +1,6 @@
 /**
  * CLIENT DATA
  * Actual clients as specified by Urjaa Solutions.
- * Replace logo paths with actual logo files when available.
  */
 
 export const clientsData = [
@@ -9,36 +8,42 @@ export const clientsData = [
     id: 1,
     name: "Toyota",
     logo: null,
-    industry: "Automotive"
+    industry: "Corporate"
   },
   {
     id: 2,
-    name: "Suprajit",
+    name: "ArcelorMittal",
     logo: null,
-    industry: "Auto Components"
+    industry: "Corporate"
   },
   {
     id: 3,
-    name: "ArcelorMittal",
+    name: "PepsiCo",
     logo: null,
-    industry: "Steel & Mining"
+    industry: "Corporate"
   },
   {
     id: 4,
-    name: "Bosch",
+    name: "NALCO",
     logo: null,
-    industry: "Industrial Technology"
+    industry: "Corporate"
   },
   {
     id: 5,
-    name: "HAL",
+    name: "Biocon",
     logo: null,
-    industry: "Defence & Aerospace"
+    industry: "Corporate"
   },
   {
     id: 6,
+    name: "HAL",
+    logo: null,
+    industry: "Government / Defense"
+  },
+  {
+    id: 7,
     name: "Indian Navy",
     logo: null,
-    industry: "Government Defence"
+    industry: "Government / Defense"
   }
 ];

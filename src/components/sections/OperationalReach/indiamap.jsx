@@ -37,6 +37,12 @@ const locations = [
     left: "25%",
     query: "Jaipur Rajasthan",
   },
+  {
+    name: "Gopalpur & Berhampur",
+    top: "54%",
+    left: "53%",
+    query: "Berhampur Odisha",
+  },
 ];
 
 export default function IndiaMap() {
