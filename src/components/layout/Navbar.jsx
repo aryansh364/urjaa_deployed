@@ -64,7 +64,7 @@ export default function Navbar() {
       <Container>
         <div className="flex items-center justify-between">
           {/* Logo Placeholder */}
-          <div className="flex items-center gap-2 cursor-pointer">
+          <div className="flex items-center gap-2 cursor-pointer shrink-0">
             <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-600/30">
               U
             </div>
@@ -74,14 +74,14 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
+          <nav className="hidden lg:flex items-center justify-center flex-1 mx-4 gap-3 xl:gap-5 2xl:gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <div key={link.name} className="relative group">
                   <a
                     href={link.href}
-                    className={`flex items-center gap-1 text-xs xl:text-sm font-bold uppercase tracking-wider transition-colors duration-200 whitespace-nowrap ${
+                    className={`flex items-center gap-1 text-[11px] xl:text-xs 2xl:text-sm font-bold uppercase tracking-wider transition-colors duration-200 whitespace-nowrap ${
                       isActive ? 'text-emerald-600' : 'text-slate-600 hover:text-emerald-600'
                     }`}
                   >
@@ -144,7 +144,7 @@ export default function Navbar() {
           </nav>
 
           {/* CTA & Mobile Menu Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 shrink-0">
             <a 
               href="#contact" 
               className="hidden md:inline-flex items-center justify-center gap-2 px-4 py-2.5 xl:px-6 xl:py-3 bg-emerald-600 text-white font-bold text-xs xl:text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 ease-in-out whitespace-nowrap"
