@@ -159,6 +159,8 @@ export default function Navbar() {
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
+              aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMobileMenuOpen ? (
@@ -175,15 +177,15 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       <div 
         className={`fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
-          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
       >
         <div 
           className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl flex flex-col p-8 transition-transform duration-300 ease-in-out ${
-            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside drawer
+          onClick={(event) => event.stopPropagation()}
         >
           <div className="flex flex-col gap-6 mt-16">
             {navLinks.map((link) => {

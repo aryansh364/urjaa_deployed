@@ -8,7 +8,8 @@ export default function SolarCalculator() {
   // Form Data
   const [formData, setFormData] = useState({
     bill: "",
-    propertyType: "Residential",
+    state: "",
+    propertyType: "",
     units: "",
   });
 
