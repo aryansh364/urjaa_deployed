@@ -1,8 +1,6 @@
 /**
- * PLACEHOLDER DATA
- * These statistics and regions are for layout testing and visual verification.
- * Replace with actual operational data when available.
- * The component logic does not need to change when real data is substituted.
+ * OPERATIONAL REACH DATA
+ * Service regions and footprint.
  */
 
 export const operationalStats = [
@@ -38,11 +36,11 @@ export const operationalStats = [
 
 export const serviceRegions = [
   { id: 1, state: "Karnataka", city: "Bengaluru", isHQ: true },
-  { id: 2, state: "Tamil Nadu", city: "Chennai", isHQ: false },
-  { id: 3, state: "Telangana", city: "Hyderabad", isHQ: false },
-  { id: 4, state: "Maharashtra", city: "Pune", isHQ: false },
-  { id: 5, state: "Andhra Pradesh", city: "Vijayawada", isHQ: false },
-  { id: 6, state: "Kerala", city: "Kochi", isHQ: false },
-  { id: 7, state: "Rajasthan", city: "Jaipur", isHQ: false },
-  { id: 8, state: "Gujarat", city: "Ahmedabad", isHQ: false }
+  { id: 2, state: "Odisha", city: "Gopalpur", isHQ: false },
+  { id: 3, state: "Odisha", city: "Berhampur", isHQ: false },
+  { id: 4, state: "Tamil Nadu", city: "Chennai", isHQ: false },
+  { id: 5, state: "Telangana", city: "Hyderabad", isHQ: false },
+  { id: 6, state: "Maharashtra", city: "Pune", isHQ: false },
+  { id: 7, state: "Gujarat", city: "Ahmedabad", isHQ: false },
+  { id: 8, state: "Rajasthan", city: "Jaipur", isHQ: false }
 ];

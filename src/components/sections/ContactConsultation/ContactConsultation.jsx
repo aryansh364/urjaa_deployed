@@ -1,144 +1,143 @@
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Container from "../../ui/Container";
+import SectionTitle from "../../ui/SectionTitle";
+import Card from "../../ui/Card";
+import ContactForm from "./ContactForm";
+import ContactInfoItem from "./ContactInfoItem";
+import { siteConfig } from "../../../constants/siteConfig";
 
 export default function ContactConsultation() {
   return (
-    <section
-      id="contact"
-      className="py-24 bg-gray-50"
-    >
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+    <section id="contact" className="py-20 md:py-28 bg-gray-50">
+      <Container>
+        <SectionTitle
+          subtitle="Contact Us"
+          title="Book Your Free Consultation"
+          description="Planning a rooftop solar plant, industrial solution, or hybrid energy system? Our experts are here to help you choose the right solution."
+        />
 
-        {/* Left */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+          {/* LEFT CARD */}
 
-        <div>
+          <Card className="p-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              Let's Build Your Renewable Energy Project
+            </h3>
 
-          <p className="uppercase tracking-widest text-emerald-600 font-semibold">
-            Contact Us
-          </p>
+            <p className="text-gray-600 leading-relaxed mb-10">
+              Get in touch with our engineering team for a free consultation,
+              technical guidance, and site assessment.
+            </p>
 
-          <h2 className="text-5xl font-bold mt-4 leading-tight">
-            Let's Build Your
-            <br />
-            Renewable Energy Project
-          </h2>
+            <div className="space-y-8">
+              <ContactInfoItem
+                icon={
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 5a2 2 0 012-2h3.28a2 2 0 011.95 1.55l.57 2.3a2 2 0 01-.45 1.83l-1.27 1.27a16 16 0 006.36 6.36l1.27-1.27a2 2 0 011.83-.45l2.3.57A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.163 24 0 14.837 0 4V3z"
+                    />
+                  </svg>
+                }
+                title="Phone"
+                value={siteConfig.phone}
+              />
 
-          <p className="mt-6 text-gray-600 leading-8">
-            Our engineers will help you choose the right renewable
-            energy solution for your home, business or industry.
-          </p>
+              <ContactInfoItem
+                icon={
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                }
+                title="Email"
+                value={siteConfig.email}
+              />
 
-          <div className="mt-10 space-y-6">
+              <ContactInfoItem
+                icon={
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z"
+                    />
+                  </svg>
+                }
+                title="Working Hours"
+                value="Monday - Saturday | 9:00 AM - 6:00 PM"
+              />
 
-            <div className="flex items-center gap-4">
+              <ContactInfoItem
+                icon={
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 12l2 2 4-4"
+                    />
+                  </svg>
+                }
+                title="Free Site Visit"
+                value="Book a free engineering assessment for your property."
+              />
 
-              <div className="bg-emerald-600 text-white p-4 rounded-full">
-                <FaPhoneAlt />
-              </div>
-
-              <div>
-
-                <h4 className="font-semibold">
-                  Call Us
-                </h4>
-
-                <p className="text-gray-600">
-                  +91 XXXXXXXXXX
-                </p>
-
-              </div>
-
+              <ContactInfoItem
+                icon={
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 6v6l4 2"
+                    />
+                  </svg>
+                }
+                title="Response Time"
+                value="Our experts typically respond within 24 hours."
+              />
             </div>
+          </Card>
 
-            <div className="flex items-center gap-4">
+          {/* RIGHT CARD */}
 
-              <div className="bg-emerald-600 text-white p-4 rounded-full">
-                <FaEnvelope />
-              </div>
-
-              <div>
-
-                <h4 className="font-semibold">
-                  Email
-                </h4>
-
-                <p className="text-gray-600">
-                  info@urjaa.com
-                </p>
-
-              </div>
-
-            </div>
-
-            <div className="flex items-center gap-4">
-
-              <div className="bg-emerald-600 text-white p-4 rounded-full">
-                <FaMapMarkerAlt />
-              </div>
-
-              <div>
-
-                <h4 className="font-semibold">
-                  Office
-                </h4>
-
-                <p className="text-gray-600">
-                  Bengaluru, Karnataka
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
+          <Card className="p-10">
+            <ContactForm />
+          </Card>
         </div>
-
-        {/* Right */}
-
-        <form className="bg-white rounded-2xl shadow-xl p-10 space-y-6">
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-
-          <select
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          >
-            <option>Solar Plant</option>
-            <option>Hybrid System</option>
-            <option>Wind Energy</option>
-            <option>Consultation</option>
-          </select>
-
-          <textarea
-            rows="5"
-            placeholder="Tell us about your project..."
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-          />
-
-          <button
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-lg font-semibold transition"
-          >
-            Request Consultation
-          </button>
-
-        </form>
-
-      </div>
+      </Container>
     </section>
   );
 }
