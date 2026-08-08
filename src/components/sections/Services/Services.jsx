@@ -1,4 +1,3 @@
-import React from 'react';
 import { servicesData } from '../../../data/services';
 import Container from '../../ui/Container';
 import SectionTitle from '../../ui/SectionTitle';

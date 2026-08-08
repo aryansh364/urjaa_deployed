@@ -1,11 +1,18 @@
+import api from "./api";
+
+const CONTACT_ENDPOINT = import.meta.env.VITE_CONTACT_ENDPOINT || "/contact";
+const CLIENT_EMAIL =
+  import.meta.env.VITE_CLIENT_EMAIL || "aloksingh18487@gmail.com";
+
 export const sendContactForm = async (data) => {
-  console.log("📨 Contact Form Submitted:", data);
-
-  // Simulate an API request
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  return {
-    success: true,
-    message: "Your consultation request has been submitted successfully.",
+  const payload = {
+    ...data,
+    recipient: CLIENT_EMAIL,
+    source: "Urjaa website contact form",
+    submittedAt: new Date().toISOString(),
   };
+
+  const response = await api.post(CONTACT_ENDPOINT, payload);
+
+  return response.data;
 };

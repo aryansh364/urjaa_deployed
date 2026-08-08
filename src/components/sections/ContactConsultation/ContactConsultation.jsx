@@ -3,6 +3,7 @@ import SectionTitle from "../../ui/SectionTitle";
 import Card from "../../ui/Card";
 import ContactForm from "./ContactForm";
 import ContactInfoItem from "./ContactInfoItem";
+import { siteConfig } from "../../../constants/siteConfig";
 
 export default function ContactConsultation() {
   return (
@@ -45,7 +46,7 @@ export default function ContactConsultation() {
                   </svg>
                 }
                 title="Phone"
-                value="+91 XXXXX XXXXX"
+                value={siteConfig.phone}
               />
 
               <ContactInfoItem
@@ -65,7 +66,7 @@ export default function ContactConsultation() {
                   </svg>
                 }
                 title="Email"
-                value="contact@urjaa.com"
+                value={siteConfig.email}
               />
 
               <ContactInfoItem
