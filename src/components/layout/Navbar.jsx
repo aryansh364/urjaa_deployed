@@ -8,7 +8,16 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
+    { 
+      name: 'Services', 
+      href: '#services',
+      dropdown: [
+        'Solar Power Plants',
+        'Wind & Hybrid',
+        'Power Conditioning',
+        'Specialized Systems'
+      ]
+    },
     { name: 'Why Us', href: '#why-us' },
     { name: 'How We Work', href: '#process' },
     { name: 'Projects', href: '#projects' },
@@ -45,8 +54,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+    <div 
+      className={`w-full transition-all duration-300 ease-in-out ${
         isScrolled 
           ? 'bg-white shadow-md py-3' 
           : 'bg-white/95 backdrop-blur-sm py-4 md:py-6 border-b border-slate-100'
@@ -69,15 +78,67 @@ export default function Navbar() {
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
-                    isActive ? 'text-emerald-600' : 'text-slate-600 hover:text-emerald-600'
-                  }`}
-                >
-                  {link.name}
-                </a>
+                <div key={link.name} className="relative group">
+                  <a
+                    href={link.href}
+                    className={`flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors duration-200 ${
+                      isActive ? 'text-emerald-600' : 'text-slate-600 hover:text-emerald-600'
+                    }`}
+                  >
+                    {link.name}
+                    {link.dropdown && (
+                      <svg
+                        className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    )}
+                  </a>
+
+                  {link.dropdown && (
+                    <div
+                      className="
+                        absolute
+                        left-0
+                        top-full
+                        mt-3
+                        w-72
+                        bg-white
+                        rounded-xl
+                        shadow-2xl
+                        border
+                        border-slate-100
+                        opacity-0
+                        invisible
+                        translate-y-2
+                        group-hover:opacity-100
+                        group-hover:visible
+                        group-hover:translate-y-0
+                        transition-all
+                        duration-300
+                        z-50
+                      "
+                    >
+                      {link.dropdown.map((item) => (
+                        <a
+                          key={item}
+                          href="#services"
+                          className="block px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
+                        >
+                          {item}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </nav>
@@ -150,6 +211,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
