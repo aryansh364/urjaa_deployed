@@ -57,7 +57,7 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 md:mt-16">
           {servicesData.map((service) => (
             <Card key={service.id} className="p-8 flex flex-col items-start text-left group">
-              <div className="mb-6 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-600 group-hover:text-white">
+              <div className="mb-6 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:bg-emerald-100">
                 {renderIcon(service.iconId)}
               </div>
               

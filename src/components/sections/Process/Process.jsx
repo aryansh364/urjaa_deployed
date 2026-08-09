@@ -64,7 +64,7 @@ export default function Process() {
                   <span className="absolute -top-8 -left-4 text-7xl font-black text-emerald-500/10 z-0 transition-transform duration-300 group-hover:-translate-y-2 group-hover:text-emerald-500/20">
                     {item.step}
                   </span>
-                  <div className="relative z-10 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-600 group-hover:text-white">
+                  <div className="relative z-10 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:bg-emerald-100">
                     {renderIcon(item.iconId)}
                   </div>
                 </div>
