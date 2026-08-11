@@ -87,7 +87,7 @@ function Projects() {
                   className="p-0 overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] border-0"
                   hoverEffect={false}
                 >
-                  <div className="h-80 sm:h-96 relative">
+                  <div className="h-80 sm:h-96 relative overflow-hidden">
                     {project.imageUrl ? (
                       <img
                         src={project.imageUrl}
@@ -114,18 +114,18 @@ function Projects() {
                       </div>
                     )}
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent flex flex-col justify-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                      <span className="inline-block px-3 py-1.5 bg-emerald-500/20 backdrop-blur-md text-emerald-300 border border-emerald-500/30 text-xs font-bold rounded-full mb-4 self-start tracking-wider uppercase">
+                    <div className="absolute inset-x-0 bottom-0 bg-white/95 backdrop-blur-md p-6 sm:p-8 border-t border-slate-100 transition-all duration-500 ease-out translate-y-full group-hover:translate-y-0 flex flex-col justify-end shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
+                      <span className="inline-block px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-4 self-start tracking-wider uppercase">
                         {project.category}
                       </span>
 
-                      <h3 className="text-2xl font-extrabold text-white mb-2 leading-tight">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
                         {project.title}
                       </h3>
 
-                      <div className="flex items-center text-slate-300 text-sm font-medium">
+                      <div className="flex items-center text-slate-500 text-sm font-semibold">
                         <svg
-                          className="w-4 h-4 mr-1.5 opacity-80"
+                          className="w-4 h-4 mr-1.5 text-emerald-600"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"

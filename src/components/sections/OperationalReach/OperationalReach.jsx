@@ -16,7 +16,7 @@ export default function OperationalReach() {
         <SectionTitle
           subtitle="Operational Reach"
           title="Powering Progress Across India"
-          description="From our headquarters in Bengaluru, we deliver renewable energy infrastructure across multiple states and industrial corridors."
+          description="On-site engineering and project management across complex terrains and urban centers."
         />
 
         {/* Stats Grid */}

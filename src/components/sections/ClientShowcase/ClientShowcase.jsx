@@ -11,8 +11,8 @@ export default function ClientShowcase() {
       <Container>
         <SectionTitle
           subtitle="Our Clients"
-          title="Trusted by Industry Leaders"
-          description="Partnering with leading organizations across government, enterprise, and the renewable energy sector."
+          title="Trusted by Industry Leaders & Government Powerhouses"
+          description="Delivering mission-critical energy infrastructure to India's most demanding sectors."
         />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8 mt-12 md:mt-16">

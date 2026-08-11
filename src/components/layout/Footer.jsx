@@ -6,160 +6,215 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import { siteConfig } from "../../constants/siteConfig";
+
+const FACEBOOK_URL = "PASTE_CONFIRMED_FACEBOOK_URL_HERE";
+
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/urja-solutions/";
 
 function Footer() {
   return (
-    <footer className="bg-[#0B7A3E] text-white">
+    <footer id="contact" className="bg-emerald-800 text-white">
 
       {/* CTA Section */}
-      <div className="bg-[#065F46] py-8">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row justify-between items-center gap-6">
+      <div className="bg-emerald-900 py-14 px-6">
+        <div className="max-w-4xl mx-auto text-center">
 
-          <div>
-            <h2 className="text-2xl font-bold">
-              Schedule Your Free Site Visit Today
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+            Schedule Your Free Site Visit Today
+          </h2>
+
+          <p className="text-lg text-emerald-100 mb-8">
+            No Project Too Small, No Grid Too Large.
+          </p>
+
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-full hover:bg-yellow-300 hover:-translate-y-1 transition-all duration-300 shadow-lg"
+          >
+            Request Consultation
+          </a>
+
+        </div>
+      </div>
+
+      {/* Main Footer */}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-16">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+          {/* Company */}
+          <div className="lg:col-span-2">
+
+            <h2 className="text-2xl font-extrabold mb-5">
+              Urjaa Solutions
             </h2>
 
-            <p className="text-green-100 mt-2">
-              No Project Too Small, No Grid Too Large.
+            <p className="text-emerald-100 leading-8 max-w-xl">
+              Delivering turnkey renewable energy engineering
+              solutions across residential, commercial,
+              industrial and government sectors.
             </p>
+
           </div>
 
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">
-            Request Consultation
-          </button>
+          {/* Services */}
+          <div>
+
+            <h3 className="text-xl font-bold mb-6">
+              Services
+            </h3>
+
+            <ul className="space-y-4 text-emerald-100">
+
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-yellow-300 transition-colors"
+                >
+                  Solar Power Plants
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-yellow-300 transition-colors"
+                >
+                  Wind & Hybrid
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-yellow-300 transition-colors"
+                >
+                  Power Conditioning
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-yellow-300 transition-colors"
+                >
+                  Solar Pumping
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="#services"
+                  className="hover:text-yellow-300 transition-colors"
+                >
+                  Street Lighting
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+          {/* Contact */}
+          <div>
+
+            <h3 className="text-xl font-bold mb-6">
+              Contact
+            </h3>
+
+            <div className="space-y-5 text-emerald-100">
+
+              {/* Phone */}
+              <a
+                href="tel:+918867309617"
+                className="flex items-center gap-3 hover:text-yellow-300 transition-colors"
+              >
+                <FaPhoneAlt className="shrink-0" />
+                <span>+91 8867309617</span>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:info@urjasolutions.com"
+                className="flex items-center gap-3 hover:text-yellow-300 transition-colors"
+              >
+                <FaEnvelope className="shrink-0" />
+                <span>info@urjasolutions.com</span>
+              </a>
+
+              {/* Raj Email */}
+              <a
+                href="mailto:raj@urjasolutions.com"
+                className="flex items-center gap-3 hover:text-yellow-300 transition-colors"
+              >
+                <FaEnvelope className="shrink-0" />
+                <span>raj@urjasolutions.com</span>
+              </a>
+
+              {/* Location */}
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="mt-1 shrink-0" />
+                <span>Bengaluru, Karnataka</span>
+              </div>
+
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-8">
+
+              {/* Facebook */}
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                title="Urja Solutions on Facebook"
+                className="w-11 h-11 rounded-full bg-emerald-600 flex items-center justify-center hover:bg-yellow-400 hover:text-slate-900 transition-all duration-300"
+              >
+                <FaFacebookF />
+              </a>
+
+              {/* Instagram - intentionally left unlinked */}
+              <a
+                href="#"
+                aria-label="Instagram"
+                title="Instagram"
+                className="w-11 h-11 rounded-full bg-emerald-600 flex items-center justify-center hover:bg-yellow-400 hover:text-slate-900 transition-all duration-300"
+              >
+                <FaInstagram />
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="Urja Solutions on LinkedIn"
+                className="w-11 h-11 rounded-full bg-emerald-600 flex items-center justify-center hover:bg-yellow-400 hover:text-slate-900 transition-all duration-300"
+              >
+                <FaLinkedinIn />
+              </a>
+
+            </div>
+
+          </div>
 
         </div>
-      </div>
 
-      {/* Footer Links */}
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Bottom Footer */}
+        <div className="border-t border-emerald-600 mt-12 pt-6 flex flex-col md:flex-row justify-between gap-4 text-sm text-emerald-200">
 
-        {/* Company */}
-        <div>
-          <h3 className="text-2xl font-bold mb-4">
-            Urjaa Solutions
-          </h3>
-
-          <p className="text-green-100 leading-7">
-            Delivering turnkey renewable energy engineering
-            solutions across residential, commercial,
-            industrial and government sectors.
+          <p>
+            © {new Date().getFullYear()} Urjaa Solutions. All rights reserved.
           </p>
-        </div>
 
-        {/* Services */}
-        <div>
-
-          <h4 className="font-semibold text-lg mb-4">
-            Services
-          </h4>
-
-          <ul className="space-y-3 text-green-100">
-
-            <li>Solar Power Plants</li>
-
-            <li>Wind & Hybrid</li>
-
-            <li>Power Conditioning</li>
-
-            <li>Solar Pumping</li>
-
-            <li>Street Lighting</li>
-
-          </ul>
+          <p>
+            Renewable Energy Engineering Solutions
+          </p>
 
         </div>
-
-        {/* Company */}
-
-        <div>
-
-          <h4 className="font-semibold text-lg mb-4">
-            Company
-          </h4>
-
-          <ul className="space-y-3 text-green-100">
-
-            <li>About Us</li>
-
-            <li>Projects</li>
-
-            <li>Technical Consulting</li>
-
-            <li>Operation & Maintenance</li>
-
-            <li>Contact</li>
-
-          </ul>
-
-        </div>
-
-        {/* Contact */}
-
-        <div>
-
-          <h4 className="font-semibold text-lg mb-4">
-            Contact
-          </h4>
-
-          <div className="space-y-4 text-green-100">
-
-            <p className="flex items-center gap-3">
-              <FaPhoneAlt />
-              {siteConfig.phone}
-            </p>
-
-            <p className="flex items-center gap-3">
-              <FaEnvelope />
-              {siteConfig.email}
-            </p>
-
-            <p className="flex items-start gap-3">
-              <FaMapMarkerAlt className="mt-1" />
-              Bengaluru, Karnataka
-            </p>
-
-          </div>
-
-          {/* Social */}
-
-          <div className="flex gap-4 mt-6">
-
-            <a
-              href="#"
-              className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
-            >
-              <FaFacebookF />
-            </a>
-
-            <a
-              href="#"
-              className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
-            >
-              <FaInstagram />
-            </a>
-
-            <a
-              href="#"
-              className="bg-white/20 p-3 rounded-full hover:bg-yellow-400 hover:text-black transition"
-            >
-              <FaLinkedinIn />
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* Bottom */}
-
-      <div className="border-t border-green-700 py-5 text-center text-green-200 text-sm">
-
-        © {new Date().getFullYear()} Urjaa Solutions.
-        All Rights Reserved.
 
       </div>
 

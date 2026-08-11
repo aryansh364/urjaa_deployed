@@ -3,13 +3,12 @@ import Container from "../../ui/Container";
 export default function Hero() {
   return (
     <section
-      id="hero"
-      className="relative min-h-[92vh] flex items-center pt-32 pb-16 overflow-hidden bg-slate-900"
+      id="home"
+      className="relative min-h-[92vh] flex items-center pt-36 pb-16 overflow-hidden bg-slate-900"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10" />
-
         <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1509391366360-51590abbd4c1?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40" />
       </div>
 
@@ -36,7 +35,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center px-8 py-4 bg-emerald-600 text-white font-bold text-sm tracking-widest uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-500 hover:shadow-[0_12px_30px_rgb(5,150,105,0.50)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 ease-in-out"
+              className="inline-flex items-center px-8 py-4 bg-emerald-600 text-white font-bold text-sm tracking-widest uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-50 hover:shadow-[0_12px_30px_rgb(5,150,105,0.50)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300 ease-in-out"
             >
               Book Free Site Visit
             </a>
