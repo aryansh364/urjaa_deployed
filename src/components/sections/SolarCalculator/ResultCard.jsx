@@ -60,12 +60,12 @@ export default function ResultCard({ results }) {
   const hasResults = results.systemSize !== "--";
 
   return (
-    <Card className="p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-slate-950 to-slate-800 text-white border-slate-800 shadow-[0_24px_70px_rgb(15,23,42,0.22)]">
-      <h3 className="text-2xl font-bold mb-2">
+    <Card className="p-6 sm:p-8 lg:p-10 bg-white text-slate-800 border border-slate-200 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <h3 className="text-2xl font-bold mb-2 text-slate-900">
         Estimated Results
       </h3>
 
-      <p className="text-slate-300 mb-8">
+      <p className="text-slate-500 mb-8">
         Your estimated solar investment analysis.
       </p>
 
@@ -78,17 +78,17 @@ export default function ResultCard({ results }) {
           return (
             <div
               key={item.key}
-              className="flex items-center justify-between p-5 rounded-2xl border border-white/10 bg-white/[0.06] transition duration-300 hover:-translate-y-1 hover:border-emerald-400/40 hover:bg-emerald-400/10"
+              className="flex items-center justify-between p-5 rounded-2xl border border-slate-100 bg-slate-50 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-emerald-50 shadow-sm"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-400/15 text-emerald-300 flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
                   <ResultIcon iconId={item.iconId} />
                 </div>
 
                 <div>
-                  <p className="text-slate-400 text-sm">{item.label}</p>
+                  <p className="text-slate-500 text-sm font-medium">{item.label}</p>
 
-                  <h4 className="text-xl sm:text-2xl font-black text-emerald-300">
+                  <h4 className="text-xl sm:text-2xl font-black text-emerald-600">
                     {!hasResults ? (
                       "--"
                     ) : item.animated ? (
@@ -117,9 +117,9 @@ export default function ResultCard({ results }) {
       </div>
 
       {!hasResults && (
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.05] p-4 text-center text-slate-300">
+        <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50 p-4 text-center text-slate-500">
           Fill the form and click{" "}
-          <span className="text-emerald-300 font-semibold">
+          <span className="text-emerald-600 font-semibold">
             Calculate Savings
           </span>
         </div>
