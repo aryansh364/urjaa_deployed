@@ -60,12 +60,12 @@ export default function ResultCard({ results }) {
   const hasResults = results.systemSize !== "--";
 
   return (
-    <Card className="p-6 sm:p-8 lg:p-10 bg-white text-slate-800 border border-slate-200 shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
-      <h3 className="text-2xl font-bold mb-2 text-slate-900">
+    <Card className="p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 text-slate-800 border border-emerald-100 shadow-[0_24px_70px_rgba(5,150,105,0.10)]">
+      <h3 className="text-2xl font-bold mb-2 text-emerald-800">
         Estimated Results
       </h3>
 
-      <p className="text-slate-500 mb-8">
+      <p className="text-emerald-700/70 mb-8 font-medium">
         Your estimated solar investment analysis.
       </p>
 
@@ -78,17 +78,17 @@ export default function ResultCard({ results }) {
           return (
             <div
               key={item.key}
-              className="flex items-center justify-between p-5 rounded-2xl border border-slate-100 bg-slate-50 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-emerald-50 shadow-sm"
+              className="flex items-center justify-between p-5 rounded-2xl border border-emerald-100 bg-emerald-50/80 transition duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:bg-emerald-100 shadow-sm"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                <div className="w-12 h-12 shrink-0 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-[0_4px_14px_rgba(5,150,105,0.35)]">
                   <ResultIcon iconId={item.iconId} />
                 </div>
 
                 <div>
-                  <p className="text-slate-500 text-sm font-medium">{item.label}</p>
+                  <p className="text-emerald-700/70 text-sm font-semibold">{item.label}</p>
 
-                  <h4 className="text-xl sm:text-2xl font-black text-emerald-600">
+                  <h4 className="text-xl sm:text-2xl font-black text-emerald-700">
                     {!hasResults ? (
                       "--"
                     ) : item.animated ? (
@@ -117,9 +117,9 @@ export default function ResultCard({ results }) {
       </div>
 
       {!hasResults && (
-        <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50 p-4 text-center text-slate-500">
+        <div className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-100/60 p-4 text-center text-emerald-800">
           Fill the form and click{" "}
-          <span className="text-emerald-600 font-semibold">
+          <span className="text-emerald-600 font-bold underline underline-offset-2">
             Calculate Savings
           </span>
         </div>
