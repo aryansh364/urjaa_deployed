@@ -3,11 +3,10 @@ import Container from '../../ui/Container';
 import SectionTitle from '../../ui/SectionTitle';
 import Card from '../../ui/Card';
 
-// Helper function to map iconIds from services.js to inline SVGs 
-// This avoids installing third-party icon libraries while maintaining visual distinction.
+// Helper function to map iconIds from services.js to inline SVGs
 function renderIcon(iconId) {
-  const baseClasses = "w-7 h-7 text-emerald-600";
-  
+  const baseClasses = "w-6 h-6 text-white";
+
   switch (iconId) {
     case 'wind':
       return (
@@ -48,26 +47,49 @@ export default function Services() {
   return (
     <section id="services" className="py-24 md:py-32 bg-slate-50">
       <Container>
-        <SectionTitle 
-          subtitle="Our Services" 
-          title="Detailed Service Domains" 
+        <SectionTitle
+          subtitle="Our Services"
+          title="Detailed Service Domains"
           description="Delivering expertise across wind & micro wind systems, hybrid energy solutions, power conditioning, and specialized deployments engineered for reliable and efficient energy infrastructure."
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 md:mt-16">
           {servicesData.map((service) => (
-            <Card key={service.id} className="p-8 flex flex-col items-start text-left group">
-              <div className="mb-6 p-4 bg-emerald-50 rounded-2xl text-emerald-600 transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:bg-emerald-100">
-                {renderIcon(service.iconId)}
+            <Card
+              key={service.id}
+              className="p-0 overflow-hidden flex flex-col group border-0 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)]"
+              hoverEffect={false}
+            >
+              {/* Image Section */}
+              <div className="relative h-52 overflow-hidden">
+                {service.imageUrl ? (
+                  <img
+                    src={service.imageUrl}
+                    alt={service.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-emerald-100" />
+                )}
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
+                {/* Icon Badge */}
+                <div className="absolute bottom-4 left-4 p-3 bg-emerald-600/90 backdrop-blur-sm rounded-xl shadow-lg transition-all duration-300 group-hover:bg-emerald-500 group-hover:scale-110">
+                  {renderIcon(service.iconId)}
+                </div>
               </div>
-              
-              <h3 className="text-lg font-extrabold text-slate-900 mb-3 tracking-tight">
-                {service.title}
-              </h3>
-              
-              <p className="text-slate-500 leading-relaxed text-sm font-medium">
-                {service.description}
-              </p>
+
+              {/* Text Section */}
+              <div className="p-6 flex flex-col flex-1 bg-white">
+                <h3 className="text-lg font-extrabold text-slate-900 mb-2 tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-slate-500 leading-relaxed text-sm font-medium flex-1">
+                  {service.description}
+                </p>
+              </div>
             </Card>
           ))}
         </div>
