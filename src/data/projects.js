@@ -22,7 +22,7 @@ export const projectsData = [
     category: "Commercial",
     location: "Bengaluru, Karnataka",
     description: "On-grid commercial rooftop solar installation.",
-    imageUrl: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 2,
@@ -38,7 +38,7 @@ export const projectsData = [
     category: "Hybrid",
     location: "Pavagada, Karnataka",
     description: "Hybrid Solar + Wind + DG sync deployment.",
-    imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ export const projectsData = [
     category: "BESS",
     location: "Bengaluru, Karnataka",
     description: "Battery Energy Storage System for grid stabilization.",
-    imageUrl: "https://images.unsplash.com/photo-1558441719-ff34b0524a24?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ export const projectsData = [
     category: "Micro Wind Systems",
     location: "Baniatangi, Odisha",
     description: "Small-scale wind turbine installation.",
-    imageUrl: "https://images.unsplash.com/photo-1507281736509-c6289f1ea0f8?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 7,
@@ -70,7 +70,7 @@ export const projectsData = [
     category: "Solar Pumping Solutions",
     location: "Karnataka",
     description: "Turnkey solar-powered water pumping system.",
-    imageUrl: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80"
   },
   {
     id: 8,
@@ -86,6 +86,6 @@ export const projectsData = [
     category: "Hybrid",
     location: "Bengaluru, Karnataka",
     description: "Off-grid solar and wind hybrid street lighting deployment.",
-    imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80"
+    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
   }
 ];

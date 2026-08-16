@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Indian Navy">
+  <circle cx="60" cy="60" r="56" fill="#001B44"/>
+  <path fill="#FF9933" d="M60 18 L72 42 H48 Z"/>
+  <rect x="48" y="42" width="24" height="8" fill="#fff"/>
+  <rect x="48" y="50" width="24" height="8" fill="#138808"/>
+  <path fill="#fff" d="M60 58 L68 78 H52 Z"/>
+  <circle cx="60" cy="86" r="6" fill="#FFD700"/>
+  <path fill="none" stroke="#FFD700" stroke-width="3" d="M36 92 Q60 104 84 92"/>
+</svg>
