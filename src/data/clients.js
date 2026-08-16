@@ -5,9 +5,8 @@
 
 import toyotaLogo from "../assets/clients/toyota.svg";
 import arcelorMittalLogo from "../assets/clients/arcelor-mittal.png";
-import pepsicoLogo from "../assets/clients/pepsico.png";
-import nalcoLogo from "../assets/clients/nalco.svg";
-import bioconLogo from "../assets/clients/biocon.svg";
+import suprajitLogo from "../assets/clients/suprajit.svg";
+import boschLogo from "../assets/clients/bosch.svg";
 import halLogo from "../assets/clients/hal.svg";
 import indianNavyLogo from "../assets/clients/indian-navy.png";
 
@@ -26,30 +25,24 @@ export const clientsData = [
   },
   {
     id: 3,
-    name: "PepsiCo",
-    logo: pepsicoLogo,
+    name: "Suprajit",
+    logo: suprajitLogo,
     industry: "Corporate"
   },
   {
     id: 4,
-    name: "NALCO",
-    logo: nalcoLogo,
+    name: "Bosch",
+    logo: boschLogo,
     industry: "Corporate"
   },
   {
     id: 5,
-    name: "Biocon",
-    logo: bioconLogo,
-    industry: "Corporate"
-  },
-  {
-    id: 6,
     name: "HAL",
     logo: halLogo,
     industry: "Government / Defense"
   },
   {
-    id: 7,
+    id: 6,
     name: "Indian Navy",
     logo: indianNavyLogo,
     industry: "Government / Defense"
