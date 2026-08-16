@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" role="img" aria-label="Biocon">
+  <rect width="320" height="90" fill="#fff"/>
+  <circle cx="36" cy="45" r="22" fill="#00843D"/>
+  <path fill="#fff" d="M36 30c8.3 0 15 6.7 15 15s-6.7 15-15 15-15-6.7-15-15 6.7-15 15-15z"/>
+  <text x="72" y="56" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#00843D">BIOCON</text>
+</svg>
