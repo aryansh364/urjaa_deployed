@@ -68,13 +68,13 @@ export default function Navbar() {
       }`}
     >
       {/* Main Navbar */}
-      <div className="max-w-[1400px] mx-auto pl-0 pr-3 sm:pr-4 lg:pr-5">
+      <div className="w-full pl-3 sm:pl-4 pr-3 sm:pr-4">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer shrink-0"
             aria-label="Urjaa Solutions Home"
           >
             <div className="w-11 h-11 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/50">
@@ -87,7 +87,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
             {navLinks.map((link) => (
               <div
                 key={link.name}
