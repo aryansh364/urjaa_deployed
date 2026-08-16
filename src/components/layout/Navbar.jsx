@@ -68,7 +68,7 @@ export default function Navbar() {
       }`}
     >
       {/* Main Navbar */}
-      <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-5">
+      <div className="max-w-[1400px] mx-auto pl-0 pr-3 sm:pr-4 lg:pr-5">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
