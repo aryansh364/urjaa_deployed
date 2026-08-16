@@ -21,12 +21,12 @@ export default function ClientShowcase() {
               key={client.id}
               className="group bg-white rounded-3xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] p-6 sm:p-8 flex flex-col items-center justify-center text-center transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-emerald-100"
             >
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-slate-50 flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-emerald-50/50 group-hover:scale-110 group-hover:shadow-inner">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-slate-50 flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:shadow-inner overflow-hidden">
                 {client.logo ? (
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="w-12 h-12 sm:w-16 sm:h-16 object-contain opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                    className="w-full h-full object-contain p-2 mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
                 ) : (
                   <span className="text-slate-400 font-extrabold text-2xl sm:text-3xl group-hover:text-emerald-600 transition-colors duration-500">
