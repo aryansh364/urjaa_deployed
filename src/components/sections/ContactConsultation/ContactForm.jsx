@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { sendContactForm } from "../../../services/contactService";
+import emailjs from "@emailjs/browser";
+
+// ─── EmailJS Credentials (hardcoded for reliability) ─────────────────────────
+const EMAILJS_SERVICE_ID  = "service_6vkklyi";
+const EMAILJS_TEMPLATE_ID = "template_58c4owo";
+const EMAILJS_PUBLIC_KEY  = "ACKb1zb5n0HrxI_iY";
+
+// Initialise EmailJS once when the module loads
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,19 +18,17 @@ export default function ContactForm() {
     message: "",
   });
 
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState("");
+  const [errors, setErrors]           = useState({});
+  const [loading, setLoading]         = useState(false);
+  const [success, setSuccess]         = useState("");
   const [serverError, setServerError] = useState("");
 
+  // ─── Handle field changes ────────────────────────────────────────────────
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setFormData((prev) => {
-      const nextData = {
-        ...prev,
-        [name]: value,
-      };
+      const nextData = { ...prev, [name]: value };
 
       window.dispatchEvent(
         new CustomEvent("urjaa:contact-form-change", { detail: nextData }),
@@ -31,68 +37,78 @@ export default function ContactForm() {
       try {
         localStorage.setItem("urjaaContactDraft", JSON.stringify(nextData));
       } catch {
-        // Draft persistence is best-effort only.
+        // Best-effort only.
       }
 
       return nextData;
     });
   };
 
+  // ─── Validate ────────────────────────────────────────────────────────────
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.name.trim()) {
+    if (!formData.name.trim())
       newErrors.name = "Full name is required.";
-    }
 
-    if (!formData.email.trim()) {
+    if (!formData.email.trim())
       newErrors.email = "Email is required.";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
-    ) {
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email))
       newErrors.email = "Please enter a valid email.";
-    }
 
-    if (!formData.phone.trim()) {
+    if (!formData.phone.trim())
       newErrors.phone = "Phone number is required.";
-    } else if (!/^[0-9]{10}$/.test(formData.phone)) {
+    else if (!/^[0-9]{10}$/.test(formData.phone))
       newErrors.phone = "Phone number must be exactly 10 digits.";
-    }
 
-    if (!formData.projectType) {
+    if (!formData.projectType)
       newErrors.projectType = "Please select a project type.";
-    }
 
-    if (!formData.message.trim()) {
+    if (!formData.message.trim())
       newErrors.message = "Message is required.";
-    }
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
+  // ─── Submit ──────────────────────────────────────────────────────────────
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     setLoading(true);
     setSuccess("");
     setServerError("");
 
+    // Template parameters — these variable names must match your
+    // EmailJS template exactly (the {{...}} placeholders).
+    const templateParams = {
+      from_name:    formData.name,
+      from_email:   formData.email,
+      phone:        formData.phone,
+      project_type: formData.projectType,
+      message:      formData.message,
+      submitted_at: new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        dateStyle: "medium",
+        timeStyle: "short",
+      }),
+    };
+
     try {
-      await sendContactForm(formData);
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+      );
 
-      setSuccess("Your consultation request has been submitted successfully!");
+      console.log("EmailJS success:", response.status, response.text);
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        projectType: "",
-        message: "",
-      });
+      setSuccess("Your consultation request has been submitted successfully! We will get back to you soon.");
+
+      // Reset form
+      setFormData({ name: "", email: "", phone: "", projectType: "", message: "" });
+      setErrors({});
 
       window.dispatchEvent(
         new CustomEvent("urjaa:contact-form-change", {
@@ -100,29 +116,36 @@ export default function ContactForm() {
         }),
       );
 
-      try {
-        localStorage.removeItem("urjaaContactDraft");
-      } catch {
-        // Draft persistence is best-effort only.
-      }
+      try { localStorage.removeItem("urjaaContactDraft"); } catch { /* best-effort */ }
 
-      setErrors({});
-    } catch {
-      setServerError("Unable to submit your request. Please try again later.");
+    } catch (err) {
+      console.error("EmailJS send failed:", err);
+
+      // Show a specific message if we can detect the root cause
+      const status = err?.status ?? err?.response?.status;
+      if (status === 400) {
+        setServerError("Email configuration error — please check the EmailJS template variables.");
+      } else if (status === 401 || status === 403) {
+        setServerError("Authentication error — please check the EmailJS public key.");
+      } else {
+        setServerError(
+          `Unable to submit your request (${status ?? "network error"}). Please try again or contact us directly.`,
+        );
+      }
     } finally {
       setLoading(false);
     }
   };
 
+  // ─── Render ──────────────────────────────────────────────────────────────
   return (
     <form className="space-y-6" onSubmit={handleSubmit}>
-      {/* Full Name */}
 
+      {/* Full Name */}
       <div>
         <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-2">
           Full Name
         </label>
-
         <input
           id="contact-name"
           type="text"
@@ -134,19 +157,16 @@ export default function ContactForm() {
           aria-describedby={errors.name ? "contact-name-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
-
         {errors.name && (
           <p id="contact-name-error" className="text-red-500 text-sm mt-2">{errors.name}</p>
         )}
       </div>
 
       {/* Email */}
-
       <div>
         <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-2">
           Email Address
         </label>
-
         <input
           id="contact-email"
           type="email"
@@ -158,19 +178,16 @@ export default function ContactForm() {
           aria-describedby={errors.email ? "contact-email-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
-
         {errors.email && (
           <p id="contact-email-error" className="text-red-500 text-sm mt-2">{errors.email}</p>
         )}
       </div>
 
       {/* Phone */}
-
       <div>
         <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-2">
           Phone Number
         </label>
-
         <input
           id="contact-phone"
           type="tel"
@@ -182,19 +199,16 @@ export default function ContactForm() {
           aria-describedby={errors.phone ? "contact-phone-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
         />
-
         {errors.phone && (
           <p id="contact-phone-error" className="text-red-500 text-sm mt-2">{errors.phone}</p>
         )}
       </div>
 
       {/* Project Type */}
-
       <div>
         <label htmlFor="contact-project-type" className="block text-sm font-semibold text-gray-700 mb-2">
           Project Type
         </label>
-
         <select
           id="contact-project-type"
           name="projectType"
@@ -212,19 +226,16 @@ export default function ContactForm() {
           <option value="Solar Pump">Solar Pump</option>
           <option value="Other">Other</option>
         </select>
-
         {errors.projectType && (
           <p id="contact-project-error" className="text-red-500 text-sm mt-2">{errors.projectType}</p>
         )}
       </div>
 
       {/* Message */}
-
       <div>
         <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-2">
           Message
         </label>
-
         <textarea
           id="contact-message"
           rows="5"
@@ -236,30 +247,26 @@ export default function ContactForm() {
           aria-describedby={errors.message ? "contact-message-error" : undefined}
           className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition resize-none"
         />
-
         {errors.message && (
           <p id="contact-message-error" className="text-red-500 text-sm mt-2">{errors.message}</p>
         )}
       </div>
 
       {/* Success Message */}
-
       {success && (
         <div role="status" className="rounded-xl border border-green-300 bg-green-100 p-4 text-green-700 font-medium">
-          {success}
+          ✅ {success}
         </div>
       )}
 
       {/* Error Message */}
-
       {serverError && (
         <div role="alert" className="rounded-xl border border-red-300 bg-red-100 p-4 text-red-700 font-medium">
-          {serverError}
+          ⚠️ {serverError}
         </div>
       )}
 
       {/* Submit Button */}
-
       <button
         type="submit"
         disabled={loading}
