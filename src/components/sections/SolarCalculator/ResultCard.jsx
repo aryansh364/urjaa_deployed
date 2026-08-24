@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "../../ui/Card";
+
+// ─── Disclaimer wording ───────────────────────────────────────────────────────
+// Edit this text when the client approves final legal wording.
+const DISCLAIMER_TEXT =
+  "Disclaimer: The results shown are indicative estimates based on the information " +
+  "provided. Actual system capacity, savings, CO₂ reduction and payback period may vary " +
+  "depending on location, electricity tariff, solar irradiation, site conditions, system " +
+  "configuration, applicable government policies/subsidies and other site-specific factors. " +
+  "Please contact Urjaa Solutions for a detailed site assessment and final proposal.";
 
 function AnimatedNumber({ end, decimals }) {
   const [value, setValue] = useState(0);
@@ -122,6 +131,20 @@ export default function ResultCard({ results }) {
           <span className="text-emerald-600 font-bold underline underline-offset-2">
             Calculate Savings
           </span>
+        </div>
+      )}
+
+      {/* Disclaimer — shown once results are displayed */}
+      {hasResults && (
+        <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 flex gap-3">
+          <div className="shrink-0 mt-0.5">
+            <svg className="h-4 w-4 text-amber-500" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+            </svg>
+          </div>
+          <p className="text-xs text-amber-700 leading-relaxed">
+            {DISCLAIMER_TEXT}
+          </p>
         </div>
       )}
     </Card>
