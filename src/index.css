@@ -57,4 +57,22 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* To support hover pause */
+  .hover-pause:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 }
