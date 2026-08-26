@@ -1,5 +1,6 @@
 import Container from "../../ui/Container";
 import hybridEnergyHero from "../../../assets/hybrid_energy_hero.png";
+import { operationalStats } from "../../../data/operationalReach";
 
 export default function Hero() {
   return (
@@ -84,7 +85,90 @@ export default function Hero() {
           </div>
 
         </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16 lg:mt-24 w-full">
+          {operationalStats.map((stat) => (
+            <div
+              key={stat.id}
+              className="group relative bg-white/5 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-white/10 p-5 sm:p-6 text-center text-white transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-emerald-500/50 hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)] overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="flex justify-center mb-4 relative z-10">
+                <div className="p-3 bg-emerald-500/10 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
+                  <svg
+                    className="w-6 h-6 text-emerald-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    {iconPath(stat.iconId)}
+                  </svg>
+                </div>
+              </div>
+              <p className="text-3xl sm:text-4xl font-black tracking-tight relative z-10">{stat.value}</p>
+              <h3 className="mt-2 font-bold text-slate-200 text-sm sm:text-base relative z-10">{stat.title}</h3>
+              <p className="text-[11px] sm:text-xs text-slate-400 mt-2 line-clamp-2 relative z-10">{stat.description}</p>
+            </div>
+          ))}
+        </div>
       </Container>
     </section>
   );
+}
+
+function iconPath(iconId) {
+  switch (iconId) {
+    case "map-pin":
+      return (
+        <>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </>
+      );
+
+    case "check-circle":
+      return (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      );
+
+    case "zap":
+      return (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M13 10V3L4 14h7v7l9-11h-7z"
+        />
+      );
+
+    case "users":
+      return (
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      );
+
+    default:
+      return <circle cx="12" cy="12" r="10" strokeWidth="2" />;
+  }
 }

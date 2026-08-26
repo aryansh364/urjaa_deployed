@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Container from "../ui/Container";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
