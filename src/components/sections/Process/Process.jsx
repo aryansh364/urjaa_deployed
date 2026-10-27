@@ -46,8 +46,8 @@ export default function Process() {
     <section id="process" className="py-24 md:py-32 bg-slate-50">
       <Container>
         <SectionTitle
-          subtitle="How We Work"
-          title="From Consultation to Commissioning"
+          subtitle="Our Process"
+          title="Concept to Commissioning"
           description="A streamlined, end-to-end EPC workflow engineered for transparency and reliability at every stage."
         />
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -66,52 +67,38 @@ function Footer() {
             </h3>
 
             <ul className="space-y-4 text-emerald-100">
-
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/solutions/solar"
                   className="hover:text-yellow-300 transition-colors"
                 >
                   Solar Power Plants
-                </a>
+                </Link>
               </li>
-
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/solutions/wind"
                   className="hover:text-yellow-300 transition-colors"
                 >
-                  Wind & Hybrid
-                </a>
+                  Wind Energy Systems
+                </Link>
               </li>
-
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/solutions/power-conditioning"
                   className="hover:text-yellow-300 transition-colors"
                 >
-                  Power Conditioning
-                </a>
+                  Power Conditioning & BESS
+                </Link>
               </li>
-
               <li>
-                <a
-                  href="#services"
+                <Link
+                  to="/solutions/specialized"
                   className="hover:text-yellow-300 transition-colors"
                 >
-                  Solar Pumping
-                </a>
+                  Specialized Deployments
+                </Link>
               </li>
-
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-yellow-300 transition-colors"
-                >
-                  Street Lighting
-                </a>
-              </li>
-
             </ul>
 
           </div>

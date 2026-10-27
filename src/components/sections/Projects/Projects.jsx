@@ -1,168 +1,86 @@
-import { memo, useMemo, useState } from "react";
-import { projectsData, projectCategories } from "../../../data/projects";
+import { memo } from "react";
+import { projectsData } from "../../../data/projects";
 import Container from "../../ui/Container";
 import SectionTitle from "../../ui/SectionTitle";
 import Card from "../../ui/Card";
 
 function Projects() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredProjects = useMemo(() => {
-    return projectsData.filter((project) => {
-      const matchesCategory =
-        activeCategory === "All" || project.category === activeCategory;
-
-      const matchesSearch =
-        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.category.toLowerCase().includes(searchTerm.toLowerCase());
-
-      return matchesCategory && matchesSearch;
-    });
-  }, [activeCategory, searchTerm]);
-
   return (
     <section id="projects" className="py-24 md:py-32 bg-white">
       <Container>
         <SectionTitle
           subtitle="Recent Projects"
-          title="Explore Recent Projects"
-          description="Browse our interactive project gallery across commercial, residential, hybrid, industrial, and specialized renewable energy deployments."
+          title="Explore Our Project Portfolio"
+          description="Browse our portfolio of completed renewable energy installations across solar, wind, hybrid, and specialized power infrastructure."
         />
 
-        {/* Search Bar */}
+        {/* Clean Project Grid — No Category Tabs per PDF */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 md:mt-16">
+          {projectsData.map((project) => (
+            <div key={project.id} className="animate-fade-in">
+              <Card
+                className="p-0 overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] border-0 flex flex-col h-full"
+                hoverEffect={false}
+              >
+                {/* Project Image */}
+                <div className="h-60 relative overflow-hidden bg-slate-800 shrink-0">
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                  
+                  {project.capacity && (
+                    <div className="absolute top-4 left-4">
+                      <span className="inline-block px-3 py-1 bg-emerald-600/95 backdrop-blur-md text-white text-xs font-bold rounded-full shadow-md tracking-wider uppercase">
+                        {project.capacity}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-        <div className="max-w-xl mx-auto mt-10">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search by project name, category or location..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-full border border-slate-300 py-4 pl-14 pr-5 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition"
-            />
+                {/* Project Info */}
+                <div className="p-6 flex flex-col flex-1 bg-white justify-between">
+                  <div>
+                    <div className="flex items-center text-emerald-600 text-xs font-bold mb-2 uppercase tracking-wide">
+                      <svg
+                        className="w-3.5 h-3.5 mr-1.5 shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      {project.location}
+                    </div>
 
-            <svg
-              className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"
-              />
-            </svg>
-          </div>
-        </div>
+                    <h3 className="text-lg font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-emerald-600 transition-colors">
+                      {project.title}
+                    </h3>
 
-        {/* Category Buttons */}
-
-        <div className="flex flex-wrap justify-center gap-3 mt-10 md:mt-12">
-          {projectCategories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ease-in-out border ${
-                activeCategory === category
-                  ? "bg-emerald-600 text-white border-emerald-600 shadow-[0_8px_20px_rgb(5,150,105,0.35)] scale-105"
-                  : "bg-white text-slate-500 border-slate-200 hover:border-emerald-300 hover:text-emerald-600 hover:bg-emerald-50 hover:-translate-y-0.5"
-              }`}
-            >
-              {category}
-            </button>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
           ))}
         </div>
-
-        {/* Project Grid */}
-
-        {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="animate-fade-in">
-                <Card
-                  className="p-0 overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.12)] border-0"
-                  hoverEffect={false}
-                >
-                  <div className="h-80 sm:h-96 relative overflow-hidden">
-                    {project.imageUrl ? (
-                      <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-slate-100 via-emerald-50 to-emerald-100 flex items-center justify-center transition-transform duration-1000 group-hover:scale-110">
-                        <svg
-                          className="w-16 h-16 text-emerald-200"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={1.5}
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
-                      </div>
-                    )}
-
-                    <div className="absolute inset-x-0 bottom-0 bg-white/95 backdrop-blur-md p-6 sm:p-8 border-t border-slate-100 transition-all duration-500 ease-out translate-y-full group-hover:translate-y-0 flex flex-col justify-end shadow-[0_-8px_30px_rgb(0,0,0,0.04)]">
-                      <span className="inline-block px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full mb-4 self-start tracking-wider uppercase">
-                        {project.category}
-                      </span>
-
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2 leading-tight">
-                        {project.title}
-                      </h3>
-
-                      <div className="flex items-center text-slate-500 text-sm font-semibold">
-                        <svg
-                          className="w-4 h-4 mr-1.5 text-emerald-600"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </svg>
-
-                        {project.location}
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-24">
-            <h3 className="text-3xl font-bold text-slate-700">
-              No Projects Found
-            </h3>
-
-            <p className="text-slate-500 mt-3">
-              Try another search term or choose a different category.
-            </p>
-          </div>
-        )}
       </Container>
     </section>
   );

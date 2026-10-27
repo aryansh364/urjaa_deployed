@@ -1,46 +1,43 @@
 /**
  * OPERATIONAL REACH DATA
- * Service regions and footprint.
+ * Per PDF: Remove India Map & individual state cards.
+ * Replace with PAN India & International Projects focus.
+ * Hero metrics changed to: "Renewable energy from kW to MW | PAN India Operations | Completed Projects 100MW+"
  */
 
-export const operationalStats = [
+export const heroMetrics = [
+  "Renewable Energy from kW to MW",
+  "PAN India Operations",
+  "Completed Projects 100MW+",
+];
+
+export const operationalHighlights = [
   {
     id: 1,
-    value: "10+",
-    title: "States Covered",
-    description: "Operational presence across key Indian states",
-    iconId: "map-pin"
+    title: "PAN India Coverage",
+    description:
+      "Engineering and project execution capability across the entire country — delivering turnkey renewable energy infrastructure with localized engineering and nationwide mobilization.",
+    iconId: "globe",
   },
   {
     id: 2,
-    value: "150+",
-    title: "Projects Delivered",
-    description: "Successfully commissioned renewable energy projects",
-    iconId: "check-circle"
+    title: "International Projects",
+    description:
+      "Expanding our renewable energy engineering expertise to international markets, delivering world-class EPC solutions beyond Indian borders.",
+    iconId: "plane",
   },
   {
     id: 3,
-    value: "50+",
-    title: "MW Installed",
-    description: "Total megawatt capacity deployed and operational",
-    iconId: "zap"
+    title: "Multi-Terrain Execution",
+    description:
+      "Proven project delivery across deserts, coastal regions, mountainous terrain, and dense urban environments with site-specific engineering.",
+    iconId: "mountain",
   },
   {
     id: 4,
-    value: "200+",
-    title: "Clients Served",
-    description: "Trusted by government bodies and industry leaders",
-    iconId: "users"
-  }
-];
-
-export const serviceRegions = [
-  { id: 1, state: "Karnataka", city: "Bengaluru", isHQ: true },
-  { id: 2, state: "Odisha", city: "Gopalpur", isHQ: false },
-  { id: 3, state: "Odisha", city: "Berhampur", isHQ: false },
-  { id: 4, state: "Tamil Nadu", city: "Chennai", isHQ: false },
-  { id: 5, state: "Telangana", city: "Hyderabad", isHQ: false },
-  { id: 6, state: "Maharashtra", city: "Pune", isHQ: false },
-  { id: 7, state: "Gujarat", city: "Ahmedabad", isHQ: false },
-  { id: 8, state: "Rajasthan", city: "Jaipur", isHQ: false }
+    title: "100+ MW Commissioned",
+    description:
+      "Over 100 megawatts of renewable energy capacity successfully commissioned across solar, wind, and hybrid installations.",
+    iconId: "zap",
+  },
 ];

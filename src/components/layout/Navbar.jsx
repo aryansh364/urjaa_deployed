@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { navigation } from "../../data/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -11,101 +14,58 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    {
-      name: "Solar Power Plants",
-      href: "#services",
-      dropdown: [
-        "On-Grid Systems",
-        "Off-Grid Systems",
-        "Hybrid Systems",
-        "Rooftop Projects",
-        "Ground Mounted Projects",
-      ],
-    },
-    {
-      name: "Wind & Hybrid",
-      href: "#services",
-      dropdown: [
-        "Wind Energy Systems",
-        "Hybrid (Solar + Wind)",
-        "On-Grid / Off-Grid with DG Sync",
-      ],
-    },
-    {
-      name: "Power Conditioning",
-      href: "#services",
-      dropdown: [
-        "UPS Systems",
-        "Battery Solutions",
-        "Servo Controlled Voltage Stabilizers",
-        "BESS",
-      ],
-    },
-    {
-      name: "Specialized",
-      href: "#services",
-      dropdown: [
-        "Solar & Hybrid Street Lights",
-        "Solar Pumping Solutions",
-      ],
-    },
-  ];
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <div
+      className={`w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md py-3"
-          : "bg-white/95 backdrop-blur-sm py-4 md:py-5 border-b border-slate-100"
+          ? "bg-white shadow-md py-2.5"
+          : "bg-white/95 backdrop-blur-sm py-3 md:py-4 border-b border-slate-100"
       }`}
     >
       {/* Main Navbar */}
       <div className="w-full pl-3 sm:pl-4 pr-3 sm:pr-4">
         <div className="flex items-center justify-between">
-
           {/* Logo */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center gap-2 cursor-pointer shrink-0"
             aria-label="Urjaa Solutions Home"
           >
             <div className="w-11 h-11 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/50">
               U
             </div>
-
             <span className="text-2xl font-extrabold text-slate-900 tracking-tight">
               Urjaa<span className="text-emerald-500">.</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
-            {navLinks.map((link) => (
+            {navigation.map((link) => (
               <div
-                key={link.name}
+                key={link.title}
                 className="relative group"
-                onMouseEnter={() => setOpenDropdown(link.name)}
+                onMouseEnter={() => setOpenDropdown(link.title)}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
-                <a
-                  href={link.href}
+                <Link
+                  to={link.href}
                   className="flex items-center gap-1 text-sm font-bold text-slate-600 hover:text-emerald-600 uppercase tracking-wide transition-colors duration-200 py-4"
                 >
-                  {link.name}
+                  {link.title}
 
-                  {link.dropdown && (
+                  {link.submenu && (
                     <svg
                       className={`w-4 h-4 transition-transform duration-200 ${
-                        openDropdown === link.name
-                          ? "rotate-180"
-                          : ""
+                        openDropdown === link.title ? "rotate-180" : ""
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"
@@ -119,19 +79,19 @@ export default function Navbar() {
                       />
                     </svg>
                   )}
-                </a>
+                </Link>
 
                 {/* Dropdown */}
-                {link.dropdown && openDropdown === link.name && (
-                  <div className="absolute left-0 top-full w-64 bg-white rounded-xl shadow-xl border border-slate-100 py-3 overflow-hidden">
-                    {link.dropdown.map((item) => (
-                      <a
-                        key={item}
-                        href="#services"
+                {link.submenu && openDropdown === link.title && (
+                  <div className="absolute left-0 top-full w-72 bg-white rounded-xl shadow-xl border border-slate-100 py-3 overflow-hidden">
+                    {link.submenu.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
                         className="block px-5 py-3 text-sm font-medium text-slate-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors"
                       >
-                        {item}
-                      </a>
+                        {item.label}
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -141,10 +101,9 @@ export default function Navbar() {
 
           {/* CTA + Mobile Button */}
           <div className="flex items-center gap-4">
-
             {/* Consultation Button */}
-            <a
-              href="#contact"
+            <Link
+              to="/#contact"
               className="hidden md:inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(16,185,129,0.35)] hover:bg-emerald-600 hover:shadow-[0_12px_30px_rgb(16,185,129,0.45)] hover:-translate-y-0.5 transition-all duration-300"
             >
               <svg
@@ -160,15 +119,12 @@ export default function Navbar() {
                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                 />
               </svg>
-
               Request Consultation
-            </a>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
-              onClick={() =>
-                setIsMobileMenuOpen(!isMobileMenuOpen)
-              }
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
               aria-label="Toggle menu"
             >
@@ -210,53 +166,48 @@ export default function Navbar() {
       >
         <div
           className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl p-8 transition-transform duration-300 ${
-            isMobileMenuOpen
-              ? "translate-x-0"
-              : "translate-x-full"
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex flex-col gap-5 mt-16">
-
-            {navLinks.map((link) => (
-              <div key={link.name}>
-                <a
-                  href={link.href}
+            {navigation.map((link) => (
+              <div key={link.title}>
+                <Link
+                  to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block py-2 text-lg font-bold text-slate-800 hover:text-emerald-600 uppercase tracking-wide"
                 >
-                  {link.name}
-                </a>
+                  {link.title}
+                </Link>
 
-                {link.dropdown && (
+                {link.submenu && (
                   <div className="ml-4 mt-1 border-l-2 border-emerald-100">
-                    {link.dropdown.map((item) => (
-                      <a
-                        key={item}
-                        href="#services"
-                        onClick={() =>
-                          setIsMobileMenuOpen(false)
-                        }
+                    {link.submenu.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
                         className="block px-4 py-2 text-sm text-slate-500 hover:text-emerald-600"
                       >
-                        {item}
-                      </a>
+                        {item.label}
+                      </Link>
                     ))}
                   </div>
                 )}
               </div>
             ))}
 
-            <a
-              href="#contact"
+            <Link
+              to="/#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="inline-flex items-center justify-center px-6 py-3 mt-3 bg-emerald-500 text-white font-bold text-sm uppercase rounded-full shadow-lg"
             >
               Request Consultation
-            </a>
+            </Link>
           </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
