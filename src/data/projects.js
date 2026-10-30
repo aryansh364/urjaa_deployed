@@ -1,91 +1,73 @@
 /**
  * PROJECT DATA
- * Categories and project entries represent actual Urjaa Solutions service domains.
- * Replace imageUrl values with actual project photography when available.
+ * Strictly per Website Details PDF — Page 1 directives:
+ * - Category filter tabs removed; clean normal project showcase.
+ * - Real project photography from the PDF used for authentic showcase.
  */
-
-export const projectCategories = [
-  "All",
-  "Commercial",
-  "Residential",
-  "Hybrid",
-  "Industrial",
-  "BESS",
-  "Micro Wind Systems",
-  "Solar Pumping Solutions"
-];
 
 export const projectsData = [
   {
     id: 1,
-    title: "Commercial Rooftop Solar",
-    category: "Commercial",
-    location: "Bengaluru, Karnataka",
-    description: "On-grid commercial rooftop solar installation.",
-    imageUrl: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=600&q=80"
+    title: "100+ MW Utility Ground-Mounted Solar Plant",
+    location: "Utility Solar Grid Installation",
+    capacity: "Utility MW Scale",
+    description: "MW-scale ground-mounted solar power plant engineering with complete HT switchgear, transformer step-up, and SCADA monitoring.",
+    imageUrl: "/pdf-images/page_5_img_1.jpg",
   },
   {
     id: 2,
-    title: "10kW Residential Rooftop",
-    category: "Residential",
-    location: "Bengaluru, Karnataka",
-    description: "Residential rooftop solar system.",
-    imageUrl: "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=600&q=80"
+    title: "Turnkey MW Solar EPC Infrastructure",
+    location: "Utility Renewable Energy Corridor",
+    capacity: "Turnkey EPC",
+    description: "Full lifecycle engineering from solar resource assessment and DC string optimization to grid synchronization and performance verification.",
+    imageUrl: "/pdf-images/page_14_img_1.jpg",
   },
   {
     id: 3,
-    title: "Solar + Wind Hybrid System",
-    category: "Hybrid",
-    location: "Pavagada, Karnataka",
-    description: "Hybrid Solar + Wind + DG sync deployment.",
-    imageUrl: "https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=600&q=80"
+    title: "Commercial On-Grid Solar Installation",
+    location: "Commercial Campus Installation",
+    capacity: "500 kW+",
+    description: "Synchronized grid-tied solar system with bi-directional net metering and anti-islanding protection.",
+    imageUrl: "/pdf-images/page_2_img_1.jpg",
   },
   {
     id: 4,
-    title: "MW-Scale Industrial Plant",
-    category: "Industrial",
-    location: "Keonjhar, Odisha",
-    description: "Large-scale ground-mounted industrial solar plant.",
-    imageUrl: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=600&q=80"
+    title: "Turnkey Renewable Energy & Hybrid Power System",
+    location: "Heavy Industrial Complex",
+    capacity: "Multi-MW Hybrid",
+    description: "Integrated solar-wind renewable power plant engineered for resilient 24/7 continuous industrial power output.",
+    imageUrl: "/pdf-images/page_14_img_2.jpg",
   },
   {
     id: 5,
-    title: "BESS Installation",
-    category: "BESS",
-    location: "Bengaluru, Karnataka",
-    description: "Battery Energy Storage System for grid stabilization.",
-    imageUrl: "https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=600"
+    title: "Hybrid & Off-Grid Energy Storage System",
+    location: "Defence & Remote Facilities",
+    capacity: "Storage + Solar",
+    description: "Grid-tied battery storage and autonomous off-grid architectures engineered for uninterrupted mission-critical reliability.",
+    imageUrl: "/pdf-images/page_4_img_1.jpg",
   },
   {
     id: 6,
-    title: "Micro Wind Turbine System",
-    category: "Micro Wind Systems",
-    location: "Baniatangi, Odisha",
-    description: "Small-scale wind turbine installation.",
-    imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80"
+    title: "Solar-Wind Hybrid Street Lighting Corridor",
+    location: "Smart City & Highway Corridors",
+    capacity: "Autonomous Fleet",
+    description: "Integrated aerodynamic micro-wind turbine, monocrystalline solar panel, MPPT controller, and lithium battery pack on single masts.",
+    imageUrl: "/pdf-images/page_22_img_1.jpg",
   },
   {
     id: 7,
-    title: "Solar Pumping Solution",
-    category: "Solar Pumping Solutions",
-    location: "Karnataka",
-    description: "Turnkey solar-powered water pumping system.",
-    imageUrl: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=600&q=80"
+    title: "High-Efficiency Solar Water Pumping System",
+    location: "Agricultural & Rural Water Infrastructure",
+    capacity: "VFD MPPT Pumping",
+    description: "Zero fuel-cost hydraulic irrigation driven by real-time solar irradiance, variable frequency drives, and dry-run protection sensors.",
+    imageUrl: "/pdf-images/page_21_img_1.jpg",
   },
   {
     id: 8,
-    title: "Hybrid Industrial Grid",
-    category: "Industrial",
-    location: "Bengaluru, Karnataka",
-    description: "Hybrid energy infrastructure for industrial facility.",
-    imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80"
+    title: "Industrial Power Conditioning & SCVS Stabilization",
+    location: "Precision Manufacturing Complex",
+    capacity: "Industrial Grade",
+    description: "High-precision servo-controlled voltage stabilizers (SCVS) and online UPS systems protecting sensitive CNC and automated assembly lines.",
+    imageUrl: "/pdf-images/page_19_img_1.jpg",
   },
-  {
-    id: 9,
-    title: "Solar & Hybrid Street Lights",
-    category: "Hybrid",
-    location: "Bengaluru, Karnataka",
-    description: "Off-grid solar and wind hybrid street lighting deployment.",
-    imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80"
-  }
 ];

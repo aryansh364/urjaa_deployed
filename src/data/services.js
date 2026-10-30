@@ -1,62 +1,73 @@
+/**
+ * SERVICES DATA
+ * Restructured per Website Details PDF.
+ * 4 service domains with expanded technical descriptions matching PDF pages 2-22.
+ * Uses real photography and schematics extracted from the PDF.
+ */
+
 export const servicesData = [
   {
     id: 1,
-    title: "Wind & Micro Wind",
-    description: "Small-to-large scale turbine integration.",
-    iconId: "wind",
-    imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=700&q=80",
+    title: "Solar Power Plants",
+    description: "Comprehensive EPC solutions for On-Grid, Off-Grid, Hybrid, and MW-Scale Ground-Mounted solar installations.",
+    iconId: "sun",
+    imageUrl: "/pdf-images/page_5_img_1.jpg",
+    href: "/solutions/solar",
     summaryPoints: [
-      "Installation of small-scale micro-wind turbines (1 kW – 50 kW) for rooftop and off-grid sites",
-      "Large-scale wind farm integration from site assessment to full commissioning",
-      "Custom turbine selection based on wind speed, terrain, and load profiling",
-      "Grid-synchronised and standalone turbine configurations supported",
-      "Blade maintenance, yaw-system calibration, and performance monitoring included",
-      "End-to-end project management with regulatory compliance and net-metering support"
-    ]
+      "On-Grid (Grid-Tied) systems with net-metering and anti-islanding safety",
+      "Off-Grid stand-alone systems with battery storage and DG synchronization",
+      "Hybrid solar systems combining grid, battery, and backup power sources",
+      "MW-Scale ground-mounted utility solar with ALMM-listed PV modules",
+      "Full 10-step EPC workflow from site assessment to SCADA commissioning",
+      "Urja Solutions 7-Phase Execution Framework for every project",
+    ],
   },
   {
     id: 2,
-    title: "Hybrid Energy Systems",
-    description: "Seamless Solar + Wind + DG Synchronization.",
-    iconId: "layers",
-    imageUrl: "https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=700&q=80",
+    title: "Wind Energy Systems",
+    description: "Wind turbine installations and Wind-Solar Hybrid systems for continuous renewable energy generation.",
+    iconId: "wind",
+    imageUrl: "/pdf-images/page_14_img_2.jpg",
+    href: "/solutions/wind",
     summaryPoints: [
-      "Intelligent Solar + Wind + Diesel Generator (DG) synchronisation for uninterrupted power",
-      "Smart energy management controllers for automatic source switching and load balancing",
-      "Battery storage integration to maximise renewable utilisation and minimise DG runtime",
-      "Custom hybrid system design for industrial, commercial, and remote rural applications",
-      "Real-time SCADA monitoring with remote diagnostics and fault alerts",
-      "Proven reduction in diesel consumption by up to 60% through optimised hybrid logic"
-    ]
+      "Small-to-large scale wind turbine integration (1 kW – multi-MW)",
+      "Wind & Solar Hybrid systems for complementary day-night generation",
+      "Synergy of daytime solar + nighttime/monsoon wind for 24/7 output",
+      "5-point feasibility checklist: wind speed, irradiance, space, regulations, grid",
+      "Custom turbine selection based on wind speed, terrain, and load profiling",
+      "Complete site assessment, foundation design, and grid synchronization",
+    ],
   },
   {
     id: 3,
     title: "Power Conditioning",
-    description: "Industrial-grade UPS, high-capacity Batteries, and Voltage Stabilizers.",
+    description: "Industrial-grade UPS, BESS, Custom Battery Solutions, and Servo Controlled Voltage Stabilizers.",
     iconId: "activity",
-    imageUrl: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=700&q=80",
+    imageUrl: "/pdf-images/page_19_img_1.jpg",
+    href: "/solutions/power-conditioning",
     summaryPoints: [
-      "Supply and installation of industrial-grade Online UPS systems (10 kVA – 1 MVA range)",
-      "High-capacity lithium-ion and VRLA battery bank design, sizing, and commissioning",
-      "Precision Voltage Stabilizers for sensitive equipment protection against fluctuations",
-      "Harmonic filters and power factor correction panels for improved power quality",
-      "AMC (Annual Maintenance Contracts) with periodic load-bank testing and battery health checks",
-      "Serving data centres, hospitals, manufacturing plants, and telecom infrastructure"
-    ]
+      "Online UPS systems with millisecond-level switchover and N+1 redundancy",
+      "BESS for peak shaving, energy arbitrage, and grid stabilization services",
+      "Custom battery solutions with LFP, NMC, and Flow battery chemistries",
+      "Servo Controlled Voltage Stabilizers (SCVS) with ±0.5% precision regulation",
+      "Advanced BMS with cell balancing, thermal management, and functional safety",
+      "Serving data centres, hospitals, manufacturing plants, and telecom infrastructure",
+    ],
   },
   {
     id: 4,
-    title: "Specialized Deployment",
-    description: "Turnkey installation for solar pumps and street lighting grids.",
+    title: "Specialized Deployments",
+    description: "Solar pumping systems and solar-wind hybrid street lighting for rural and urban infrastructure.",
     iconId: "settings",
-    imageUrl: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?auto=format&fit=crop&w=700&q=80",
+    imageUrl: "/pdf-images/page_22_img_1.jpg",
+    href: "/solutions/specialized",
     summaryPoints: [
-      "Turnkey solar water pump installations for agriculture, irrigation, and drinking water projects",
-      "AC and DC solar pump systems with VFD drives for efficient variable-speed operation",
-      "Smart solar street lighting with auto-dusk-to-dawn control and motion sensing",
-      "Modular pole-mounted systems with lithium battery backup for reliable night-time illumination",
-      "Execution of government-funded rural electrification and PM-KUSUM scheme projects",
-      "Post-installation O&M support with performance guarantees and remote monitoring dashboards"
-    ]
-  }
+      "Solar water pumping with MPPT VFD drives and BLDC submersible motors",
+      "6-point pumping checklist: TDH, discharge rate, recharge, selection, PV oversizing, protection",
+      "Solar-wind hybrid street lighting for 24/7 autonomous illumination",
+      "Vertical/horizontal wind turbines + mono-perc solar + LiFePO4 battery packs",
+      "PIR motion dimming, 2-3 days battery autonomy, 120-150 km/h wind load resistance",
+      "PM-KUSUM scheme execution and government rural electrification projects",
+    ],
+  },
 ];
