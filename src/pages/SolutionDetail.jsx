@@ -375,16 +375,6 @@ export default function SolutionDetail({ solution }) {
                 <p className="text-emerald-100 leading-relaxed">{solution.idealFor}</p>
               </div>
             )}
-
-            {/* CTA */}
-            <div className="mt-12 text-center">
-              <Link
-                to="/#contact"
-                className="inline-flex items-center px-8 py-4 bg-emerald-600 text-white font-bold text-sm tracking-widest uppercase rounded-full shadow-[0_8px_20px_rgb(5,150,105,0.35)] hover:bg-emerald-700 hover:shadow-[0_12px_30px_rgb(5,150,105,0.50)] hover:-translate-y-1 active:translate-y-0 transition-all duration-300"
-              >
-                Request a Consultation
-              </Link>
-            </div>
           </div>
         </Container>
       </section>
