@@ -47,9 +47,17 @@ function Footer() {
           {/* Company */}
           <div className="lg:col-span-2">
 
-            <h2 className="text-2xl font-extrabold mb-5">
-              Urjaa Solutions
-            </h2>
+            <Link
+              to="/"
+              className="inline-block mb-6 group focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 rounded-lg"
+              aria-label="Urjaa Solutions Home"
+            >
+              <img
+                src="/logos/urja-logo-white.png"
+                alt="Urjaa Solutions"
+                className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
 
             <p className="text-emerald-100 leading-8 max-w-xl">
               Delivering turnkey renewable energy engineering

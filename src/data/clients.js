@@ -7,12 +7,54 @@
  * Important clients marked in bold in the PDF have `featured: true`.
  */
 
-import toyotaLogo from "../assets/clients/toyota.svg";
-import arcelorMittalLogo from "../assets/clients/arcelor-mittal.png";
-import suprajitLogo from "../assets/clients/suprajit.svg";
-import boschLogo from "../assets/clients/bosch.svg";
+// ── Government Sector Logos ──
 import halLogo from "../assets/clients/hal.svg";
 import indianNavyLogo from "../assets/clients/indian-navy.png";
+import incomeTaxLogo from "../assets/clients/income-tax-dept.svg";
+import zillaGramLogo from "../assets/clients/zilla-gram-panchayats.svg";
+import coffeeBoardLogo from "../assets/clients/coffee-board.svg";
+import deptOfPostsLogo from "../assets/clients/dept-of-posts.png";
+import nredcapLogo from "../assets/clients/nredcap.png";
+import cpwdLogo from "../assets/clients/cpwd.svg";
+
+// ── Institutions Logos ──
+import iiscLogo from "../assets/clients/iisc.png";
+import iiaLogo from "../assets/clients/iia.svg";
+import christUnivLogo from "../assets/clients/christ-university.svg";
+import schneiderLogo from "../assets/clients/schneider-electric.svg";
+import svyasaLogo from "../assets/clients/svyasa.png";
+import dasaTrustLogo from "../assets/clients/dasa-trust.png";
+import mangaloreUnivLogo from "../assets/clients/mangalore-university.png";
+import artOfLivingLogo from "../assets/clients/art-of-living.png";
+import mythicSocietyLogo from "../assets/clients/mythic-society.png";
+import msrLogo from "../assets/clients/msr-institutions.png";
+import iiwcLogo from "../assets/clients/iiwc.svg";
+
+// ── Corporates Logos ──
+import tataProjectsLogo from "../assets/clients/tata-projects.svg";
+import toyotaLogo from "../assets/clients/toyota.svg";
+import boschLogo from "../assets/clients/bosch.svg";
+import jswLogo from "../assets/clients/jsw.png";
+import arcelorMittalLogo from "../assets/clients/arcelor-mittal.png";
+import bisleriLogo from "../assets/clients/bisleri.png";
+import kfcLogo from "../assets/clients/kfc.png";
+import puravankaraLogo from "../assets/clients/puravankara.svg";
+import prakashCoachLogo from "../assets/clients/prakash-coach.svg";
+import suprajitLogo from "../assets/clients/suprajit.svg";
+import alutopLogo from "../assets/clients/alutop.svg";
+import tabIndiaLogo from "../assets/clients/tab-india.png";
+import paceMicroLogo from "../assets/clients/pace-micro.svg";
+import preranaMotorsLogo from "../assets/clients/prerana-motors.png";
+import popuriSteelLogo from "../assets/clients/popuri-steel.svg";
+import ciconLogo from "../assets/clients/cicon.svg";
+import abhayMarblesLogo from "../assets/clients/abhay-marbles.svg";
+import precimeasureLogo from "../assets/clients/precimeasure.png";
+import rijkzwaanLogo from "../assets/clients/rijkzwaan.svg";
+import karleInfraLogo from "../assets/clients/karle-infra.png";
+import teConnectivityLogo from "../assets/clients/te-connectivity.svg";
+import vikramResinsLogo from "../assets/clients/vikram-resins.svg";
+import nandiHousingLogo from "../assets/clients/nandi-housing.png";
+import goldenEnclaveLogo from "../assets/clients/golden-enclave.svg";
 
 export const clientCategories = [
   "All",
@@ -42,42 +84,42 @@ export const clientsData = [
   {
     id: 3,
     name: "Income tax department",
-    logo: null,
+    logo: incomeTaxLogo,
     sector: "Government Sector",
     featured: false,
   },
   {
     id: 4,
     name: "Zilla/Gram Panchayats (Govt. of Karnataka)",
-    logo: null,
+    logo: zillaGramLogo,
     sector: "Government Sector",
     featured: false,
   },
   {
     id: 5,
     name: "Coffee Board",
-    logo: null,
+    logo: coffeeBoardLogo,
     sector: "Government Sector",
     featured: false,
   },
   {
     id: 6,
     name: "Dept. of Posts",
-    logo: null,
+    logo: deptOfPostsLogo,
     sector: "Government Sector",
     featured: false,
   },
   {
     id: 7,
     name: "NREDCAP (AP Govt. undertaking)",
-    logo: null,
+    logo: nredcapLogo,
     sector: "Government Sector",
     featured: false,
   },
   {
     id: 8,
     name: "CPWD",
-    logo: null,
+    logo: cpwdLogo,
     sector: "Government Sector",
     featured: false,
   },
@@ -88,77 +130,77 @@ export const clientsData = [
   {
     id: 9,
     name: "IISc",
-    logo: null,
+    logo: iiscLogo,
     sector: "Institutions",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 10,
     name: "Indian Institute of Astrophysics",
-    logo: null,
+    logo: iiaLogo,
     sector: "Institutions",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 11,
     name: "Christ University",
-    logo: null,
+    logo: christUnivLogo,
     sector: "Institutions",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 12,
     name: "Schneider Electric Foundation",
-    logo: null,
+    logo: schneiderLogo,
     sector: "Institutions",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 13,
     name: "SVYASA University",
-    logo: null,
+    logo: svyasaLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 14,
     name: "DASA Trust / Karnataka University",
-    logo: null,
+    logo: dasaTrustLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 15,
     name: "Mangalore University",
-    logo: null,
+    logo: mangaloreUnivLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 16,
     name: "SSRDP (Art of Living Foundation)",
-    logo: null,
+    logo: artOfLivingLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 17,
     name: "The Mythic Society",
-    logo: null,
+    logo: mythicSocietyLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 18,
     name: "MSR Institutions",
-    logo: null,
+    logo: msrLogo,
     sector: "Institutions",
     featured: false,
   },
   {
     id: 19,
     name: "Indian Institute of World Culture",
-    logo: null,
+    logo: iiwcLogo,
     sector: "Institutions",
     featured: false,
   },
@@ -169,7 +211,7 @@ export const clientsData = [
   {
     id: 20,
     name: "TATA Projects",
-    logo: null,
+    logo: tataProjectsLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
@@ -190,7 +232,7 @@ export const clientsData = [
   {
     id: 23,
     name: "JSW",
-    logo: null,
+    logo: jswLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
@@ -204,28 +246,28 @@ export const clientsData = [
   {
     id: 25,
     name: "Bisleri International",
-    logo: null,
+    logo: bisleriLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 26,
     name: "KFC",
-    logo: null,
+    logo: kfcLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 27,
     name: "Purvankara",
-    logo: null,
+    logo: puravankaraLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
   {
     id: 28,
     name: "Prakash Coach Builders",
-    logo: null,
+    logo: prakashCoachLogo,
     sector: "Corporates",
     featured: true, // Marked in bold in PDF
   },
@@ -239,98 +281,98 @@ export const clientsData = [
   {
     id: 30,
     name: "Alutop",
-    logo: null,
+    logo: alutopLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 31,
     name: "Tab India",
-    logo: null,
+    logo: tabIndiaLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 32,
     name: "Pace Micro",
-    logo: null,
+    logo: paceMicroLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 33,
     name: "Prerana Motors",
-    logo: null,
+    logo: preranaMotorsLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 34,
     name: "Popuri Steel",
-    logo: null,
+    logo: popuriSteelLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 35,
     name: "Cicon",
-    logo: null,
+    logo: ciconLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 36,
     name: "Abhay Marbles",
-    logo: null,
+    logo: abhayMarblesLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 37,
     name: "Precimeasure",
-    logo: null,
+    logo: precimeasureLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 38,
     name: "RijkZwaan",
-    logo: null,
+    logo: rijkzwaanLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 39,
     name: "Karle Infra",
-    logo: null,
+    logo: karleInfraLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 40,
     name: "DRI Relays (TE Connectivity)",
-    logo: null,
+    logo: teConnectivityLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 41,
     name: "Vikram Resins and Polymers",
-    logo: null,
+    logo: vikramResinsLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 42,
     name: "Nandi Housing",
-    logo: null,
+    logo: nandiHousingLogo,
     sector: "Corporates",
     featured: false,
   },
   {
     id: 43,
     name: "Golden Enclave",
-    logo: null,
+    logo: goldenEnclaveLogo,
     sector: "Corporates",
     featured: false,
   },

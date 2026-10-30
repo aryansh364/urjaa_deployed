@@ -36,15 +36,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 cursor-pointer shrink-0"
+            className="flex items-center cursor-pointer shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg"
             aria-label="Urjaa Solutions Home"
           >
-            <div className="w-11 h-11 bg-emerald-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-500/50">
-              U
-            </div>
-            <span className="text-2xl font-extrabold text-slate-900 tracking-tight">
-              Urjaa<span className="text-emerald-500">.</span>
-            </span>
+            <img
+              src="/logos/urja-logo.png"
+              alt="Urjaa Solutions"
+              className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.02]"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -165,12 +164,23 @@ export default function Navbar() {
         onClick={() => setIsMobileMenuOpen(false)}
       >
         <div
-          className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl p-8 transition-transform duration-300 ${
+          className={`absolute top-0 right-0 w-3/4 max-w-sm h-screen bg-white shadow-2xl p-6 sm:p-8 transition-transform duration-300 flex flex-col justify-between overflow-y-auto ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex flex-col gap-5 mt-16">
+          <div>
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+                <img
+                  src="/logos/urja-logo.png"
+                  alt="Urjaa Solutions"
+                  className="h-9 w-auto object-contain"
+                />
+              </Link>
+            </div>
+
+            <div className="flex flex-col gap-4">
             {navigation.map((link) => (
               <div key={link.title}>
                 <Link
@@ -209,5 +219,6 @@ export default function Navbar() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
