@@ -25,15 +25,9 @@ function Footer() {
             Schedule Your Free Site Visit Today
           </h2>
 
-          <p className="text-lg text-emerald-100 mb-8">
+          <p className="text-lg text-emerald-100">
             No Project Too Small, No Grid Too Large.
           </p>
-
-          <Link to="/#contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-yellow-400 text-slate-900 font-bold rounded-full hover:bg-yellow-300 hover:-translate-y-1 transition-all duration-300 shadow-lg"
-          >
-            Request Consultation
-          </Link>
 
         </div>
       </div>
