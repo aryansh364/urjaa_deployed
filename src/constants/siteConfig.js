@@ -3,11 +3,11 @@ export const siteConfig = {
 
   tagline: "Renewable Energy Engineering for Every Scale",
 
-  phone: "+91 74711 39234",
+  phone: "+91 8867309617",
 
-  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || "917471139234",
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || "918867309617",
 
-  email: "aloksingh18487@gmail.com",
+  email: "info@urjasolutions.com",
 
   address: "Bengaluru, Karnataka",
 

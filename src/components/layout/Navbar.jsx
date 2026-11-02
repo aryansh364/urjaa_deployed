@@ -98,33 +98,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + Mobile Button */}
-          <div className="flex items-center gap-4">
-            {/* Consultation Button */}
-            <Link
-              to="/#contact"
-              className="hidden md:inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 text-white font-bold text-sm tracking-wide uppercase rounded-full shadow-[0_8px_20px_rgb(16,185,129,0.35)] hover:bg-emerald-600 hover:shadow-[0_12px_30px_rgb(16,185,129,0.45)] hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              Request Consultation
-            </Link>
-
-            {/* Mobile Menu Button */}
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-4 lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
+              className="p-2 text-slate-600 hover:text-emerald-600 transition-colors z-50 relative"
               aria-label="Toggle menu"
             >
               <svg
