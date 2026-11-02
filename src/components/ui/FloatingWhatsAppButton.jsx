@@ -10,14 +10,24 @@ const emptyDraft = {
 };
 
 function buildWhatsAppMessage(draft) {
-  return [
-    "Hello,",
-    "",
-    `Name: ${draft.name || ""}`,
-    `Phone: ${draft.phone || ""}`,
-    `Project Type: ${draft.projectType || ""}`,
-    `Message: ${draft.message || ""}`,
-  ].join("\n");
+  const hasContent = Boolean(
+    (draft.name && draft.name.trim()) ||
+    (draft.phone && draft.phone.trim()) ||
+    (draft.projectType && draft.projectType.trim()) ||
+    (draft.message && draft.message.trim())
+  );
+
+  if (!hasContent) {
+    return "Hello Urjaa Solutions, I would like to know more about your renewable energy solutions.";
+  }
+
+  const parts = ["Hello Urjaa Solutions,"];
+  if (draft.name && draft.name.trim()) parts.push(`Name: ${draft.name.trim()}`);
+  if (draft.phone && draft.phone.trim()) parts.push(`Phone: ${draft.phone.trim()}`);
+  if (draft.projectType && draft.projectType.trim()) parts.push(`Project Type: ${draft.projectType.trim()}`);
+  if (draft.message && draft.message.trim()) parts.push(`Message: ${draft.message.trim()}`);
+
+  return parts.join("\n");
 }
 
 export default function FloatingWhatsAppButton() {
